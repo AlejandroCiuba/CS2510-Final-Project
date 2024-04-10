@@ -1,0 +1,147 @@
+Stars,Name,Primary Authors,Language,License,Leader Election + Log Replication?,Persistence?,Membership Changes?,Log Compaction?
+26505.0,RethinkDB,,C++,Apache-2.0,Yes,Yes,Yes,Yes
+14448.0,TiKV,"Jay, ngaut, siddontang, tiancaiamao",Rust,Apache-2.0,Yes,Yes,Yes,Yes
+12450.0,Seastar Raft,"Gleb Natapov, Konstantin Osipov, Pavel Solodovnikov, Alejo Sanchez, Kamil Braun, Tomash Grabiec",C++20,AGPL,Yes,Yes,Yes,Yes
+10079.0,nebula-graph-storage,"Sherman Ye, Doodle Wang",C++,Apache-2.0,Yes,Yes,Yes,Yes
+3776.0,braft,"Zhangyi Chen, Yao Wang",C++,Apache-2.0,Yes,Yes,Yes,Yes
+5849.0,hazelcast-raft,"Mehmet Dogan, Ensar Basri Kahveci",Java,Apache-2.0,Yes,Yes,Yes,Yes
+7812.0,hashicorp/raft,Armon Dadgar,Go,MPL-2.0,Yes,Yes,Yes,Yes
+1509.0,.NEXT Raft,Roman Sakno,C#,MIT,Yes,Yes,Yes,Yes
+7038.0,Aeron Cluster,"Martin Thompson, Todd L. Montgomery, Michael Barker, Dmitry Vyazelenko",Java,Apache-2.0,Yes,Yes,Yes,Yes
+3458.0,SOFAJRaft,"Boyan, Jiachun",Java,Apache-2.0,Yes,Yes,Yes,Yes
+2425.0,go-raft,"Ben Johnson , Xiang Li, CoreOS)",Go,MIT,Yes,Yes,No,Yes
+996.0,async-raft,Anthony Dodd,Rust,Apache-2.0 or MIT,Yes,Yes,Yes,Yes
+4930.0,dragonboat,Lei Ni,Go,Apache-2.0,Yes,Yes,Yes,Yes
+961.0,eliben/raft,Eli Bendersky,Go,Unlicense,Yes,Yes,No,No
+1796.0,Kudu,"David Alves, Todd Lipcon, Mike Percy",C++,Apache-2.0,Yes,Yes,Yes,Yes
+1193.0,Openraft,"Yanpo Zhang, Anthony Dodd",Rust,Apache-2.0 or MIT,Yes,Yes,Yes,Yes
+1083.0,willemt/raft,Willem-Hendrik Thiart,C,BSD,Yes,Yes,Yes,Yes
+512.0,etcd-io/raft,"Blake Mizerany, Xiang Li, Yicheng Qin",Go,Apache-2.0,Yes,Yes,Yes,Yes
+1832.0,LogCabin,Diego Ongaro,C++,ISC,Yes,Yes,Yes,Yes
+938.0,NuRaft,Jung-Sang Ahn,C++,Apache-2.0,Yes,Yes,Yes,Yes
+1148.0,raft-java,Wenwei Hu,Java,Apache-2.0,Yes,Yes,Yes,Yes
+1162.0,Apache Ratis,Tsz-Wo (Nicholas) Sze,Java,Apache-2.0,Yes,Yes,Yes,Yes
+679.0,bakwc/PySyncObj,Filipp Ozinov,Python,MIT,Yes,Yes,Yes,Yes
+219.0,xraft,XnnYygn,Java,MIT,Yes,Yes,Yes,Yes
+396.0,Permazen/RaftKVDatabase,Archie Cobbs,Java,Apache-2.0,Yes,Yes,Yes,Yes
+797.0,RedisRaft,Redis Labs,C,(AGPL-3.0 OR RSAL),Yes,Yes,Yes,Yes
+250.0,jgroups-raft,Bela Ban,Java,Apache-2.0,Yes,Yes,Yes,Yes
+431.0,OpenDaylight,"Moiz Raja, Kamal Rameshan, Robert Varga, Tom Pantelis",Java,EPL-1.0,Yes,Yes,No,Yes
+775.0,Ra,Team RabbitMQ,erlang,(Apache-2.0 OR MPL-1.1),Yes,Yes,Yes,Yes
+251.0,eraft,"JieLiu, FengLin Zou, WeiZheng Wu, JiaCheng Huang, BiYong Liu, Zichen Xu",C++,MIT,Yes,Yes,Yes,Yes
+277.0,akka-raft,Konrad Malawski,Scala,Apache-2.0,Yes,Yes,Yes,Yes
+161.0,Raft.Net,hhblaze@gmail.com,C#,BSD-2-Clause License,Yes,Yes,Yes,Yes
+188.0,MicroRaft,Ensar Basri Kahveci,Java,Apache-2.0,Yes,Yes,Yes,Yes
+175.0,jraft,Andy Chen,Java,Apache-2.0,Yes,Yes,Yes,Yes
+260.0,Cornerstone,Andy Chen,C++,Apache-2.0,Yes,Yes,Yes,Yes
+123.0,harryw/raft,Harry Wilkinson,Ruby,MIT,No,,No,No
+38.0,foros,Wonguk Jeong,C++,Apache-2.0,Yes,Yes,No,No
+341.0,raftos,Alexander Zhebrak,Python,MIT,Yes,,No,No
+282.0,simpleRaft,Sean Reed,Python,MIT,No,,No,No
+316.0,kanaka/raft.js,Joel Martin,Javascript,MPL-2.0,Yes,,Yes,No
+213.0,ckite,Pablo Medina,Scala,Apache-2.0,Yes,Yes,Yes,Yes
+453.0,Juno,"Brian Schroeder, Libby Kent, Stuart Popejoy, Will Martino",Haskell,BSD,No,,No,No
+99.0,allengeorge/libraft,Allen George,Java,BSD,Yes,,No,No
+91.0,barge,Dave Rusek,Java,Apache-2.0,Yes,,No,No
+61.0,Gondola,"Patrick Chan, Wei-Cheng Pan",Java,New BSD,Yes,,Yes,No
+266.0,hoverbear/raft,"Andrew Hobden, Dan Burkert",Rust,MIT,Yes,,No,No
+159.0,akiradeveloper/lol,Akira Hayakawa,Rust,MIT,Yes,Yes,Yes,Yes
+62.0,RaftCore,Guillermo RodrÃ­guez,C#,MIT,Yes,,No,No
+153.0,Zatt,Simon Accascina,Python,AGPL-3.0,Yes,Yes,Yes,Yes
+231.0,liferaft,Arnout Kazemier,Javascript,MIT,No,,No,No
+268.0,rafter,Andrew Stone,Erlang,Apache-2.0,No,,No,No
+177.0,verdi-raft,"James Wilcox, Doug Woos, Pavel Panchekha, Zach Tatlock, Xi Wang, Mike Ernst, Tom Anderson",Coq,BSD,Yes,,No,No
+30.0,miniraft-cpp,Aleksei Ozeritskii,C++,BSD,Yes,No,No,No
+54.0,Raft-php,Waqee Khalid,PHP,MIT,Yes,,No,No
+76.0,NRaft,Bert Willems,C#,MIT,No,,No,No
+43.0,xzwRaft,xzw,Java,Apache-2.0,Yes,Yes,No,No
+61.0,gaggle,Ben Ng,Javascript,MIT,Yes,,No,No
+28.0,cowsql/raft,Free Ekanayaka,C,LGPL-3.0 Linking Exception,Yes,Yes,Yes,Yes
+112.0,ocaml-raft,Heidi Howard,OCaml,MIT,Yes,,No,No
+165.0,zraft_lib,Gunin Alexander,Erlang,Apache-2.0,Yes,Yes,Yes,Yes
+10.0,Raft-SPIN,Xingyu Xie,PROMELA,MIT,Yes,Yes,No,No
+149.0,Qihoo360/raft,"ZongzhiChen, AnAnZhao, KangWang",C++,GPL-3.0,Yes,,No,No
+48.0,Vesper,"Nicola Manzini, Peng Ding",Python,MIT,Yes,,Yes,No
+135.0,skiff,Pedro Teixeira,Javascript,ISC,Yes,Yes,Yes,Yes
+21.0,chicm/CmRaft,Cheng Min Chi,Java,Apache-2.0,Yes,,No,No
+26.0,lewiszlw/raft,Linwei Zhang,Rust,MIT,Yes,Yes,Yes,Yes
+171.0,peterbourgon/raft,Peter Bourgon,Go,BSD-2-Clause,Yes,,Yes,No
+77.0,floss,Alexander Flatter,Ruby,MIT,No,,No,No
+13.0,tf-Raft,Fawzi Abdulfattah,TypeScript,MIT,Yes,Yes,Yes,No
+39.0,xingyif/raft,Yifan Xing,Python,Apache-2.0,Yes,Yes,Yes,Yes
+20.0,simple-raft-rs,"jessa0, Signal Messenger",Rust,AGPL-3.0-or-later,Yes,No,No,No
+21.0,cppa-raft,Zhang Yichao,C++,MIT,No,,No,No
+52.0,srned/Prez,Sureshkumar Nedunchezhian,C,BSD,Yes,,No,No
+121.0,kontiki,Nicolas Trangez,Haskell,BSD,No,,No,No
+54.0,dupdob/RAFTiNG,Cyrille Dupuydauby,C#,Apache-2.0,No,,No,No
+36.0,aurora,arthur,C++,GPL-3.0,Yes,,Yes,No
+27.0,ORaft,Mitsunori Komatsu,OCaml,Apache-2.0,Yes,,No,No
+34.0,raft-kotlin,Sasha Chepurnoi,Kotlin,MIT,Yes,,Yes,No
+13.0,IvanProdaiko94/raft-protocol-implementation,Ivan Prodaiko,Go,MIT,Yes,,No,No
+18.0,raft4s,Alireza Meskin,Scala,Apache-2.0,Yes,Yes,Yes,Yes
+29.0,aioraft,lisael,Python,AGPL-3.0+,No,No,Yes,No
+23.0,lite-raft,Luigi Tarenga,Shell,MIT,Yes,Yes,Yes,Yes
+56.0,archie/raft,Marcus Ljungblad,Scala,MIT,No,,No,No
+38.0,tetrapods/raft,Aaron Davidson,Java,Apache-2.0,Yes,Yes,No,Yes
+25.0,ÃMQ Raft for node.js,RafaÅ Michalski,Javascript,LGPL-3.0,Yes,Yes,Yes,Yes
+25.0,Flotten,Henrik Feldt,F#,MIT,No,,No,No
+91.0,py-raft,Toby Burress,Python,Unlicense,No,No,Yes,No
+9.0,RaftShop,"Matteo Berti, Arnaldo Cesco , Salvatore Fiorilla",Jolie,LGPL,Yes,,No,No
+18.0,mind1949/raft,lianjie zhu,Go,MIT,Yes,Yes,Yes,No
+25.0,ScaleCube Raft Leader Election,ScaleCube,Java,Apache-2.0,Yes,,No,No
+21.0,pontoon,Matt Reiferson,Go,,No,,No,No
+7.0,raft-angular,Dushyant Sabharwal,Angular 4,MIT,Yes,,Yes,No
+33.0,C5 replicator,"Ryan Rawson, Alex Newman, Josh Greenberg",Java,Apache-2.0,Yes,Yes,Yes,Yes
+50.0,raft-clj,John Weaver,Clojure,EPL-1.0,No,,No,No
+20.0,rafute,Yuki Ito,Elixir,MIT,Yes,,No,No
+33.0,Chillaxd,Yassine Lamgarchal,Python,Apache-2.0,Yes,,No,No
+15.0,d-raft,Dengos Wei,C++,Apache-2.0,Yes,,No,No
+8.0,tuannh982/sraft,Tuan Nguyen Huu,Java,MIT,Yes,No,No,No
+6.0,rasp,Kristian BrÃ¼nn,C/C++ (Arduino),MIT,Yes,,No,No
+15.0,Riff,Aaron Pritzlaff,Scala,Apache-2.0,Yes,Yes,Yes,Yes
+,atomix (archived),Jordan Halterman,Java,Apache-2.0,Yes,Yes,Yes,Yes
+12.0,santhosh-tekuri/raft,Santhosh Kumar Tekuri,Go,Apache-2.0,Yes,Yes,Yes,Yes
+8.0,python3-raft,"Arun Sharma, Sean Reed",Python,MIT,No,Yes,Yes,No
+20.0,RSM,Olivier Paugam,Rust,MIT,Yes,Yes,No,Yes
+13.0,huckleberry,Jakob Sievers,Erlang,,No,,No,No
+10.0,dannycoates/raft-core,Danny Coates,Javascript,BSD,No,,No,No
+9.0,dataleading/easyRaft,Shanliang Shen,Java,Apache-2.0,Yes,,No,No
+7.0,dinghy,Trevor Bernard,Clojure,Apache-2.0,No,,No,No
+6.0,LENSHOOD/go-raft,Zhang Xuhai,Go,MIT,Yes,No,No,No
+5.0,Raft-Omnet,"Edoardo Venir, Leonardo Ruzza",Omnet++,Apache-2.0,Yes,Yes,Yes,Yes
+5.0,seaturtles,Lionel Barrow,Go,,No,,No,No
+12.0,graft,"Ben Mills, William Dix",Go,,No,,No,No
+13.0,noeleo/raft,"Noel Moldvai, Rohit Turumella, Josh Muhlfelder, James Butkovic",Bloom,BSD-2-Clause,No,No,No,No
+5.0,Trabica,Hossam Karim,Scala,MIT,Yes,Yes,Yes,No
+9.0,meatcompute/raft-consensus,Mikaela Patella,Clojure,EPL-1.0,No,,No,No
+14.0,r4j,Kaarel Kann,Java,Apache-2.0,Yes,,No,No
+19.0,melee,Fredrick Galoso,Clojure,EPL-1.0,No,,No,No
+5.0,RaftUDP,Emanuele Gallone,Python,MIT,Yes,,No,No
+5.0,draft,Patrick Van Stee,Elixir,,No,,No,No
+8.0,yora,Huy Le,Ruby,MIT,Yes,,Yes,No
+8.0,whitewater,"Adam Midvidy, Anh Mai, Karoun Kasraie, Sanketh Katta",Bloom,MIT,No,,No,No
+6.0,Rub-Raft,zhyzhyzhy,Java,Apache-2.0,Yes,Yes,Yes,Yes
+5.0,fxsjy/Ins,Junyi Sun,C++,BSD,Yes,Yes,No,Yes
+,nidus,Ryan Siemens,Python,MIT,Yes,Yes,No,No
+,drpicox/uoc-raft-2013p,David Rodenas,Java,GPL-3.0,No,,No,No
+5.0,scalaraft,Kim Je Min,Scala,Apache-2.0,No,,No,No
+6.0,viile/raft,viile,D,MIT,Yes,,No,No
+6.0,giraft,Patrick Van Stee,Ruby,MIT,No,,No,No
+7.0,huntlabs/hunt-raft,huntlabs,D,Apache-2.0,Yes,Yes,Yes,Yes
+7.0,Raft-JVM,Tim Kellogg,Java,,No,,No,No
+,zodiac-prime,Evan Phoenix,Ruby,MIT,No,,No,No
+,fz0raft,Evangelos Tsamis,F#,MIT,Yes,,No,Yes
+,feeyo-raft,AMing Zhu,Java,BSD-3-Clause,Yes,Yes,Yes,Yes
+,mruby-flotte,Hendrik,mruby,Apache-2.0,Yes,,No,No
+6.0,Raft4WS,Filipe Campos,Java,Apache-2.0,Yes,,No,No
+5.0,rafterl,Eric Moritz,Erlang,,No,,No,No
+,chelan,Eric Jutrzenka,Scala,,Yes,,No,No
+,fsraft,Karl-Johan Nilsson,F#,Unlicense,No,,No,No
+5.0,bspolley/raft,"Alex Kaiser, Brennan Polley, Helen Weng",Bloom,,No,,No,No
+,cb372/raft,Chris Birchall,Scala,,No,,No,No
+,pvilas/raft,Pere Vilas,Java,,No,,No,No
+,PecanRaft,Priyanshu Sharma,Java,Apache-2.0,Yes,Yes,Yes,No
+,jalvaro/raft,Jordi Alvaro,Java,,No,,No,No
+,raft.ts,Adrian Punga,TypeScript,Apache-2.0,No,,No,No
+,PRaft,Buqing Ma,Python,BSD,Yes,Yes,Yes,Yes
+,rodriguezvalencia/rafting,Sergio Rodriguez,Clojure,MIT,No,,No,No

@@ -68,7 +68,7 @@ def add_args(parser: argparse.ArgumentParser):
         "-p",
         "--port",
         type=str,
-        default=50051,
+        default=5000,
         help="Server connection port for nodes.\n \n",
     )
 

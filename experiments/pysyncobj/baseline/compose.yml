@@ -1,0 +1,73 @@
+version: '3.1'
+services:
+  servera:
+    build: ${SERVER_DOCKER}
+    hostname: servera
+    tty: true
+    environment:
+      SERVER0: servera
+      SERVER1: serverb:6000
+      SERVER2: serverc:6000
+      SERVER3: serverd:6000
+      SERVER4: servere:6000
+    command: bash -c "sleep 5; bash ${SERVER}"
+
+  serverb:
+    build: ${SERVER_DOCKER}
+    hostname: serverb
+    tty: true
+    environment:
+      SERVER0: serverb
+      SERVER1: servera:6000
+      SERVER2: serverc:6000
+      SERVER3: serverd:6000
+      SERVER4: servere:6000
+    command: bash -c "sleep 5; bash ${SERVER}"
+
+  serverc:
+    build: ${SERVER_DOCKER}
+    hostname: serverc
+    tty: true
+    environment:
+      SERVER0: serverc
+      SERVER1: serverb:6000
+      SERVER2: servera:6000
+      SERVER3: serverd:6000
+      SERVER4: servere:6000
+    command: bash -c "sleep 5; bash ${SERVER}"
+
+  serverd:
+    build: ${SERVER_DOCKER}
+    hostname: serverd
+    tty: true
+    environment:
+      SERVER0: serverd
+      SERVER1: serverb:6000
+      SERVER2: serverc:6000
+      SERVER3: servera:6000
+      SERVER4: servere:6000
+    command: bash -c "sleep 5; bash ${SERVER}"
+
+  servere:
+    build: ${SERVER_DOCKER}
+    hostname: servere
+    tty: true
+    environment:
+      SERVER0: servere
+      SERVER1: serverb:6000
+      SERVER2: serverc:6000
+      SERVER3: serverd:6000
+      SERVER4: servera:6000
+    command: bash -c "sleep 5; bash ${SERVER}"
+
+  client:
+    build: ${CLIENT_DOCKER}
+    hostname: client
+    tty: true
+    environment:
+      SERVER0: servera:5000
+      SERVER1: serverb:5000
+      SERVER2: serverc:5000
+      SERVER3: serverd:5000
+      SERVER4: servere:5000
+    command: bash -c "sleep 10; bash ${CLIENT}"

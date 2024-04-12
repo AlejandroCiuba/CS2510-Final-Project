@@ -36,6 +36,7 @@ class Timer:
 
         self.name = name
         self.vault = vault
+        self.auto_add = auto_add
 
     def __enter__(self):
 

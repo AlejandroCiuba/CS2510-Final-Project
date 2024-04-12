@@ -13,24 +13,30 @@ class Timer:
 
     name: str
     vault: TimerVault
+    auto_add: bool  # Automatically add itself upon running `__exit()__`
 
     total: float
     start: float
     stop: float
 
-    def __init__(self, name: str, vault: TimerVault):
+    def __init__(self, name: str, vault: TimerVault, auto_add: bool = True):
         """
         Parameters
         ---
 
         `name`: `str`
             Name of the function group
+
         `vault`: `TimerVault`
             `TimerVault` instance to hook this up to
+
+        `auto_add`: `bool`
+            Automatically add itself to its `TimerVault` upon `__exit()__`; default `True`
         """
 
         self.name = name
         self.vault = vault
+        self.auto_add = auto_add
 
     def __enter__(self):
 
@@ -41,7 +47,9 @@ class Timer:
         
         self.stop = time.process_time()
         self.total = self.stop - self.start
-        self.vault.add(self)
+
+        if self.auto_add:
+            self.vault.add(self)
 
     def to_dict(self):
         """

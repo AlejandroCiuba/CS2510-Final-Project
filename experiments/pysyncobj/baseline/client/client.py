@@ -1,4 +1,6 @@
 # Client for the server
+from tqdm import tqdm
+
 import argparse
 import requests
 
@@ -9,28 +11,45 @@ def http(url):
 
 def main(args: argparse.Namespace):
 
-    TEST = {f"TESTKEY{i:d}": f"TESTVALUE{i:d}" for i in range(10)}
+    TEST = {f"TESTKEY{i:d}": f"TESTVALUE{i:d}" for i in range(args.data)}
     SERVERS = args.servers
 
-    for node in SERVERS:
-        print(requests.get(f"{node}/node/status").json())
+    # Get and connect directly to the leader
+    response = requests.get(f"{SERVERS[0]}/node/status")
+    metadata = response.json()
+    LEADER = f"http://{metadata['leader'].split(':')[0]}:5000"
 
-    for key in TEST:
-        response = requests.post(f"{SERVERS[0]}/user/{key}/{TEST[key]}")
-        print(f"POSTED {key}-{TEST[key]} | {response.json()}")
+    for key in tqdm(TEST):
+
+        response = requests.post(f"{LEADER}/user/{key}/{TEST[key]}")
+        value = response.json()
+
+        try:
+            assert TEST[key] == value[key]
+        except AssertionError:
+            print(f"{key}: {TEST[key]} | {value}")
 
     for node in SERVERS:
         print(requests.get(f"{node}/node/status").json())
     
-    for key in TEST:
-        response = requests.get(f"{SERVERS[0]}/user/{key}")
+    for key in tqdm(TEST):
+
+        response = requests.get(f"{LEADER}/user/{key}")
         value = response.json()
-        print(f"{key}: {TEST[key]} | {value}")
+
+        try:
+            assert TEST[key] == value[key]
+        except AssertionError:
+            print(f"{key}: {TEST[key]} | {value}")
 
     for node in SERVERS:
         print(requests.get(f"{node}/node/status").json())
 
-    print(requests.get(f"{SERVERS[0]}/node/metadata").json())
+    timer_info = requests.get(f"{LEADER}/node/metadata").json()
+    print(timer_info)
+    times = timer_info["recordings"]["total"]
+
+    print(f"RESULT | AVG COMMIT TIME: {sum(times) / len(times)}")
 
 
 def add_args(parser: argparse.ArgumentParser):

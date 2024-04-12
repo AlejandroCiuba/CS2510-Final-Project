@@ -10,7 +10,7 @@ services:
       SERVER2: serverc:6000
       SERVER3: serverd:6000
       SERVER4: servere:6000
-    command: bash -c "sleep 5; bash ${SERVER}"
+    command: bash -c "sleep 1; bash ${SERVER}"
 
   serverb:
     build: ${SERVER_DOCKER}
@@ -22,7 +22,7 @@ services:
       SERVER2: serverc:6000
       SERVER3: serverd:6000
       SERVER4: servere:6000
-    command: bash -c "sleep 5; bash ${SERVER}"
+    command: bash -c "sleep 1; bash ${SERVER}"
 
   serverc:
     build: ${SERVER_DOCKER}
@@ -34,7 +34,7 @@ services:
       SERVER2: servera:6000
       SERVER3: serverd:6000
       SERVER4: servere:6000
-    command: bash -c "sleep 5; bash ${SERVER}"
+    command: bash -c "sleep 1; bash ${SERVER}"
 
   serverd:
     build: ${SERVER_DOCKER}
@@ -46,7 +46,7 @@ services:
       SERVER2: serverc:6000
       SERVER3: servera:6000
       SERVER4: servere:6000
-    command: bash -c "sleep 5; bash ${SERVER}"
+    command: bash -c "sleep 1; bash ${SERVER}"
 
   servere:
     build: ${SERVER_DOCKER}
@@ -58,7 +58,7 @@ services:
       SERVER2: serverc:6000
       SERVER3: serverd:6000
       SERVER4: servera:6000
-    command: bash -c "sleep 5; bash ${SERVER}"
+    command: bash -c "sleep 1; bash ${SERVER}"
 
   client:
     build: ${CLIENT_DOCKER}

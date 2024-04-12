@@ -17,7 +17,6 @@ SYNCOBJ: SyncObj
 
 @app.get("/user/<key>")
 def user_get(key: str):
-
     return json.dumps({key: DB.get(key, default="NA")}), 201
 
 
@@ -36,6 +35,11 @@ def node_status():
     status = SYNCOBJ.getStatus()
     safe_status = {k: str(status[k]) for k in status}
     return json.dumps(safe_status), 201
+
+
+@app.get("/node/ready")
+def node_ready():
+    return json.dumps({"ready": SYNCOBJ.isNodeConnected()}), 201
 
 
 @app.get("/node/metadata")

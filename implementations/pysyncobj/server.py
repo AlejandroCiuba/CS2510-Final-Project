@@ -9,6 +9,7 @@ import argparse
 import json
 import os
 import psutil
+import sys
 
 app: Flask = Flask(__name__)
 
@@ -53,8 +54,8 @@ def node_metadata():
 
     metadata = {"vault": TIMERVAULT.to_dict(),
                 "avg_cpu": PROC.cpu_percent(),
-                "ps_mem": PROC.memory_info().rss / (2**20),
-                "log_size": SYNCOBJ.__raftLog.__bytesSize, }  # MB
+                "ps_mem": PROC.memory_info().rss / (2**20),  # MB
+                "log_size": sys.getsizeof(SYNCOBJ._SyncObj__raftLog), }  # B
 
     return json.dumps(metadata), 201
 

@@ -40,12 +40,12 @@ class Timer:
 
     def __enter__(self):
 
-        self.start = time.process_time()
+        self.start = time.perf_counter()
         return self
     
     def __exit__(self, type, value, traceback):
         
-        self.stop = time.process_time()
+        self.stop = time.perf_counter()
         self.total = self.stop - self.start
 
         if self.auto_add:

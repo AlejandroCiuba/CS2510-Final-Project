@@ -7,10 +7,16 @@ from timer import (Timer,
 
 import argparse
 import json
+import os
+import psutil
 
 app: Flask = Flask(__name__)
 
+
+# Metrics information
 TIMERVAULT: TimerVault = TimerVault("PySyncObj")
+PROC: psutil.Process = psutil.Process(os.getpid())
+
 DB: ReplDict = ReplDict()
 SYNCOBJ: SyncObj
 
@@ -44,7 +50,12 @@ def node_ready():
 
 @app.get("/node/metadata")
 def node_metadata():
-    return json.dumps(TIMERVAULT.to_dict()), 201
+
+    metadata = {"vault": TIMERVAULT.to_dict(),
+                "avg_cpu": PROC.cpu_percent(),
+                "ps_mem": PROC.memory_info().rss / (2**20), }  # MB
+
+    return json.dumps(metadata), 201
 
 
 def main(args: argparse.Namespace):
@@ -92,8 +103,17 @@ def add_args(parser: argparse.ArgumentParser):
         help="Other nodes' addresses with ports.\n \n",
     )
 
+    parser.add_argument(
+        "-d",
+        "--debug",
+        action="store_true",
+        help="Other nodes' addresses with ports.\n \n",
+    )
+
 
 if __name__ == "__main__":
+
+    PROC.cpu_percent()
 
     parser = argparse.ArgumentParser(
         prog="server.py",

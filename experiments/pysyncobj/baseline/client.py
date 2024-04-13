@@ -45,11 +45,17 @@ def main(args: argparse.Namespace):
     for node in SERVERS:
         print(requests.get(f"{node}/node/status").json())
 
-    timer_info = requests.get(f"{LEADER}/node/metadata").json()
-    print(timer_info)
-    times = timer_info["recordings"]["total"]
+    results = requests.get(f"{LEADER}/node/metadata").json()
+
+    print(results)
+
+    times = results["vault"]["recordings"]["total"]
+    avg_cpu = results["avg_cpu"]
+    ps_mem = results["ps_mem"]
 
     print(f"RESULT | AVG COMMIT TIME: {sum(times) / len(times)}")
+    print(f"RESULT | AVG CPU UTIL: {avg_cpu}%")
+    print(f"RESULT | MAX MEM UTIL: {ps_mem} MiB")
 
 
 def add_args(parser: argparse.ArgumentParser):

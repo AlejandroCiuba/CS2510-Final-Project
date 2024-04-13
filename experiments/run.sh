@@ -5,6 +5,10 @@ API=$2
 
 echo "$EXP ON $API"
 
-bash bashes/$EXP.sh $API >> results/$API-$EXP
+if [[ -z "$3" ]]; then
+    bash bashes/$EXP.sh $API >> results/$API-$EXP
+elif [[ $3 == "debug" ]]; then
+    bash bashes/$EXP.sh $API >> results/$API-$EXP.debug
+fi
 
 echo "DONE"

@@ -11,7 +11,7 @@ def http(url):
 
 def main(args: argparse.Namespace):
 
-    TEST = {f"TESTKEY{i:d}": f"TESTVALUE{i:d}" for i in range(args.data)}
+    TEST = {f"{i:d}": f"{i:d}" for i in range(args.data)}
     SERVERS = args.servers
 
     # Get and connect directly to the leader
@@ -52,10 +52,16 @@ def main(args: argparse.Namespace):
     times = results["vault"]["recordings"]["total"]
     avg_cpu = results["avg_cpu"]
     ps_mem = results["ps_mem"]
+    log_size = results["log_size"]
 
+    if "test" in metadata.keys():
+        print("RESULTS ARE FROM A SKELETON")
+
+    print(f"RESULT | MESSAGES SENT/REQUESTED: {args.data}")
     print(f"RESULT | AVG COMMIT TIME: {sum(times) / len(times)}")
     print(f"RESULT | AVG CPU UTIL: {avg_cpu}%")
     print(f"RESULT | MAX MEM UTIL: {ps_mem} MiB")
+    print(f"RESULT | END LOG SIZE: {log_size} B")
 
 
 def add_args(parser: argparse.ArgumentParser):
@@ -63,7 +69,7 @@ def add_args(parser: argparse.ArgumentParser):
     parser.add_argument(
         "-d",
         "--data",
-        default=100,
+        default=1000,
         type=int,
         help="Number of test values to generate.\n \n",
     )

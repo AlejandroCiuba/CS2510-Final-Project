@@ -1,0 +1,64 @@
+version: '3.1'
+services:
+
+  servera:
+    build: ${SERVER_DOCKER}
+    hostname: servera
+    tty: true
+    environment:
+      SERVER0: servera
+    command: bash -c "sleep 1; bash ${SERVER} a"
+
+  serverb:
+    build: ${SERVER_DOCKER}
+    hostname: serverb
+    tty: true
+    environment:
+      SERVER0: serverb
+      LEADER: servera:5000
+    command: bash -c "sleep 5; bash ${SERVER} b"
+    depends_on: 
+      - servera
+
+  serverc:
+    build: ${SERVER_DOCKER}
+    hostname: serverc
+    tty: true
+    environment:
+      SERVER0: serverc
+      LEADER: servera:5000
+    command: bash -c "sleep 5; bash ${SERVER} c"
+    depends_on: 
+      - servera
+
+  serverd:
+    build: ${SERVER_DOCKER}
+    hostname: serverd
+    tty: true
+    environment:
+      SERVER0: serverd
+      LEADER: servera:5000
+    command: bash -c "sleep 5; bash ${SERVER} d"
+    depends_on: 
+      - servera
+
+  servere:
+    build: ${SERVER_DOCKER}
+    hostname: servere
+    tty: true
+    environment:
+      SERVER0: servere
+      LEADER: servera:5000
+    command: bash -c "sleep 5; bash ${SERVER} e"
+    depends_on: 
+      - servera
+
+  client:
+    build: ${CLIENT_DOCKER}
+    hostname: client
+    tty: true
+    environment:
+      LEADER: servera:5000
+    command: bash -c "sleep 10; bash ${CLIENT}"
+    depends_on: 
+      - servera

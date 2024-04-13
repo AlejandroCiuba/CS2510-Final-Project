@@ -66,6 +66,7 @@ def main(args: argparse.Namespace):
 
     global SYNCOBJ
     SYNCOBJ = SyncObj(node, args.nodes, consumers=[DB])
+
     print(SYNCOBJ.isReady())
     app.run(host=args.ip, port=args.service_port)
 

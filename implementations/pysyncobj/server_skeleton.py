@@ -2,6 +2,7 @@
 from flask import Flask
 # from pysyncobj import SyncObj
 # from pysyncobj.batteries import ReplDict
+from pympler import asizeof  # Can recursively measure object size with .asizeof(OBJ)
 from timer import (Timer,
                    TimerVault, )
 
@@ -9,6 +10,7 @@ import argparse
 import json
 import os
 import psutil
+
 
 app: Flask = Flask(__name__)
 
@@ -52,10 +54,12 @@ def node_ready():
 @app.get("/node/metadata")
 def node_metadata():
 
+    asizeof.asizeof(TIMERVAULT)
+
     metadata = {"vault": TIMERVAULT.to_dict(),
                 "avg_cpu": PROC.cpu_percent(),
                 "ps_mem": PROC.memory_info().rss / (2**20),  # MB
-                "log_size": 0}
+                "log_size": asizeof.asized(TIMERVAULT).size, }  # B
 
     return json.dumps(metadata), 201
 

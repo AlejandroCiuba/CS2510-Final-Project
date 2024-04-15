@@ -1,5 +1,6 @@
 # Basic key-value server in PySyncObj
 from flask import Flask
+from pympler import asizeof  # Can recursively measure object size with .asizeof(OBJ)
 from pysyncobj import SyncObj
 from pysyncobj.batteries import ReplDict
 from timer import (Timer,
@@ -9,7 +10,7 @@ import argparse
 import json
 import os
 import psutil
-import sys
+
 
 app: Flask = Flask(__name__)
 
@@ -52,10 +53,12 @@ def node_ready():
 @app.get("/node/metadata")
 def node_metadata():
 
+    asizeof.asizeof(SYNCOBJ._SyncObj__raftLog)
+
     metadata = {"vault": TIMERVAULT.to_dict(),
                 "avg_cpu": PROC.cpu_percent(),
                 "ps_mem": PROC.memory_info().rss / (2**20),  # MB
-                "log_size": sys.getsizeof(SYNCOBJ._SyncObj__raftLog), }  # B
+                "log_size": asizeof.asized(SYNCOBJ._SyncObj__raftLog).size, }  # B
 
     return json.dumps(metadata), 201
 

@@ -1,3 +1,4 @@
 Flask==3.0.3
 psutil==5.9.8
+Pympler==1.0.1
 pysyncobj==0.3.12

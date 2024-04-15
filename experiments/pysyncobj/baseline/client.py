@@ -69,7 +69,7 @@ def add_args(parser: argparse.ArgumentParser):
     parser.add_argument(
         "-d",
         "--data",
-        default=1000,
+        default=1_000,
         type=int,
         help="Number of test values to generate.\n \n",
     )

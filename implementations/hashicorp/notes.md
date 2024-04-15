@@ -1,0 +1,14 @@
+- Requires snapshots and stable storage
+- Real implementation would save logs and stablestore to disk automatically
+- Could use boltdb, a pure go implementation of log storage
+- raft.Log
+    - `Index` 64 bits
+    - `Term` 64 bits
+    - `LogType` 8 bits https://github.com/hashicorp/raft/blob/main/log.go
+    - `Data` slice -> word * 2 + x bytes
+    - `Extensions` slice -> word * 2 + y bytes
+    - `AppendedAt` `time.Time` assume 64 bits * 2 + word https://stackoverflow.com/questions/56963226/how-many-bytes-are-in-a-golang-time-object
+
+    - Therefore: 8 bytes * 4 + 1 byte + 5 word + x bytes + y bytes -> 33 bytes + 5 word + x bytes + y bytes
+        - I am running this on a 64bit machine
+        - 73 bytes + x bytes + y bytes

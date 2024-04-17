@@ -6,7 +6,7 @@ FROM golang:1.22
 ENV GOPATH=/server
 
 WORKDIR /server/src
-RUN git clone https://github.com/otoolep/hraftd.git
+RUN git clone https://github.com/AlejandroCiuba/hraftd.git
 
 WORKDIR /server/src/hraftd
 RUN go install

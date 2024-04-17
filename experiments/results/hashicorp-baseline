@@ -53,3 +53,112 @@ serverb-1  | 2024/04/13 22:15:51 hraftd started successfully, listening on http:
 servera-1  | 2024-04-13T22:15:51.983Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
 client-1   | HELLO WORLD servera:5000
 client-1 exited with code 0
+===================== 2024-04-17 17:40:19 =====================
+===================== 2024-04-17 17:40:28 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-17T21:43:01.588Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-17T21:43:01.652Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/17 21:43:01 hraftd started successfully, listening on http://localhost:11000
+servera-1  | 2024-04-17T21:43:03.617Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-17T21:43:03.617Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servera-1  | 2024-04-17T21:43:03.617Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-17T21:43:03.617Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-17T21:43:03.617Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-17T21:43:03.617Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-17T21:43:03.617Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverc-1  | 2024-04-17T21:43:08.049Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-17T21:43:08.050Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024/04/17 21:43:08 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024-04-17T21:43:08.256Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-17T21:43:08.256Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverb-1  | 2024/04/17 21:43:08 hraftd started successfully, listening on http://localhost:11000
+servere-1  | 2024-04-17T21:43:08.808Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-17T21:43:08.809Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servere-1  | 2024/04/17 21:43:08 hraftd started successfully, listening on http://localhost:11000
+serverd-1  | 2024-04-17T21:43:09.330Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-17T21:43:09.330Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024/04/17 21:43:09 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024-04-17T21:43:09.434Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverb-1  | 2024-04-17T21:43:09.435Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverb-1  | 2024-04-17T21:43:09.435Z [DEBUG] raft: voting for self: term=2 id=nodeb
+serverb-1  | 2024-04-17T21:43:09.435Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverb-1  | 2024-04-17T21:43:09.435Z [DEBUG] raft: vote granted: from=nodeb term=2 tally=1
+serverb-1  | 2024-04-17T21:43:09.435Z [INFO]  raft: election won: term=2 tally=1
+serverb-1  | 2024-04-17T21:43:09.435Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverc-1  | 2024-04-17T21:43:09.812Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverc-1  | 2024-04-17T21:43:09.812Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverc-1  | 2024-04-17T21:43:09.812Z [DEBUG] raft: voting for self: term=2 id=nodec
+serverc-1  | 2024-04-17T21:43:09.813Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverc-1  | 2024-04-17T21:43:09.813Z [DEBUG] raft: vote granted: from=nodec term=2 tally=1
+serverc-1  | 2024-04-17T21:43:09.813Z [INFO]  raft: election won: term=2 tally=1
+serverc-1  | 2024-04-17T21:43:09.813Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverd-1  | 2024-04-17T21:43:10.558Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverd-1  | 2024-04-17T21:43:10.558Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverd-1  | 2024-04-17T21:43:10.559Z [DEBUG] raft: voting for self: term=2 id=noded
+serverd-1  | 2024-04-17T21:43:10.559Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverd-1  | 2024-04-17T21:43:10.559Z [DEBUG] raft: vote granted: from=noded term=2 tally=1
+serverd-1  | 2024-04-17T21:43:10.559Z [INFO]  raft: election won: term=2 tally=1
+serverd-1  | 2024-04-17T21:43:10.559Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+servere-1  | 2024-04-17T21:43:10.802Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servere-1  | 2024-04-17T21:43:10.802Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servere-1  | 2024-04-17T21:43:10.802Z [DEBUG] raft: voting for self: term=2 id=nodee
+servere-1  | 2024-04-17T21:43:10.802Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servere-1  | 2024-04-17T21:43:10.802Z [DEBUG] raft: vote granted: from=nodee term=2 tally=1
+servere-1  | 2024-04-17T21:43:10.802Z [INFO]  raft: election won: term=2 tally=1
+servere-1  | 2024-04-17T21:43:10.802Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+client-1   | HELLO WORLD servera:5000
+client-1 exited with code 0
+===================== 2024-04-17 18:04:31 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-17T22:06:27.838Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-17T22:06:27.892Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/17 22:06:27 hraftd started successfully, listening on http://localhost:11000
+servera-1  | 2024-04-17T22:06:29.358Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-17T22:06:29.359Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servera-1  | 2024-04-17T22:06:29.359Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-17T22:06:29.359Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-17T22:06:29.359Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-17T22:06:29.359Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-17T22:06:29.359Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+servere-1  | 2024-04-17T22:06:33.180Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-17T22:06:33.180Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servere-1  | 2024/04/17 22:06:33 hraftd started successfully, listening on http://localhost:11000
+servere-1  | 2024-04-17T22:06:34.850Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servere-1  | 2024-04-17T22:06:34.851Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servere-1  | 2024-04-17T22:06:34.851Z [DEBUG] raft: voting for self: term=2 id=nodee
+servere-1  | 2024-04-17T22:06:34.851Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servere-1  | 2024-04-17T22:06:34.851Z [DEBUG] raft: vote granted: from=nodee term=2 tally=1
+servere-1  | 2024-04-17T22:06:34.851Z [INFO]  raft: election won: term=2 tally=1
+servere-1  | 2024-04-17T22:06:34.851Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverd-1  | 2024-04-17T22:06:35.606Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-17T22:06:35.606Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024/04/17 22:06:35 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024-04-17T22:06:35.777Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-17T22:06:35.777Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverb-1  | 2024/04/17 22:06:35 hraftd started successfully, listening on http://localhost:11000
+serverc-1  | 2024-04-17T22:06:36.006Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-17T22:06:36.006Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024/04/17 22:06:36 hraftd started successfully, listening on http://localhost:11000
+serverc-1  | 2024-04-17T22:06:37.227Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverc-1  | 2024-04-17T22:06:37.227Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverc-1  | 2024-04-17T22:06:37.227Z [DEBUG] raft: voting for self: term=2 id=nodec
+serverc-1  | 2024-04-17T22:06:37.228Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverc-1  | 2024-04-17T22:06:37.228Z [DEBUG] raft: vote granted: from=nodec term=2 tally=1
+serverc-1  | 2024-04-17T22:06:37.228Z [INFO]  raft: election won: term=2 tally=1
+serverc-1  | 2024-04-17T22:06:37.228Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverd-1  | 2024-04-17T22:06:37.505Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverd-1  | 2024-04-17T22:06:37.505Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverd-1  | 2024-04-17T22:06:37.505Z [DEBUG] raft: voting for self: term=2 id=noded
+serverd-1  | 2024-04-17T22:06:37.505Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverd-1  | 2024-04-17T22:06:37.505Z [DEBUG] raft: vote granted: from=noded term=2 tally=1
+serverd-1  | 2024-04-17T22:06:37.505Z [INFO]  raft: election won: term=2 tally=1
+serverd-1  | 2024-04-17T22:06:37.506Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverb-1  | 2024-04-17T22:06:37.591Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverb-1  | 2024-04-17T22:06:37.591Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverb-1  | 2024-04-17T22:06:37.591Z [DEBUG] raft: voting for self: term=2 id=nodeb
+serverb-1  | 2024-04-17T22:06:37.591Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverb-1  | 2024-04-17T22:06:37.591Z [DEBUG] raft: vote granted: from=nodeb term=2 tally=1
+serverb-1  | 2024-04-17T22:06:37.591Z [INFO]  raft: election won: term=2 tally=1
+serverb-1  | 2024-04-17T22:06:37.591Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+client-1   | client.sh: line 3: curl: command not found
+client-1 exited with code 127

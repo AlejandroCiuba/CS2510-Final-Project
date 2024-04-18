@@ -1,0 +1,261 @@
+===================== 2024-04-18 00:12:33 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T04:13:00.221Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T04:13:00.221Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 04:13:00 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T04:13:01.783Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T04:13:01.783Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T04:13:01.783Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T04:13:01.783Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T04:13:01.783Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T04:13:01.783Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T04:13:01.783Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+serverc-1  | 2024-04-18T04:13:04.624Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T04:13:04.624Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.3:6000 [Follower]" leader-address= leader-id=
+serverb-1  | 2024-04-18T04:13:04.624Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T04:13:04.624Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.4:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 04:13:04 received join request for remote node nodeb at serverb:6000
+servera-1  | [store] 2024/04/18 04:13:04 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T04:13:04.625Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T04:13:04.625Z [INFO]  raft: added peer, starting replication: peer=nodeb
+servera-1  | 2024-04-18T04:13:04.625Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | 2024-04-18T04:13:04.625Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | [store] 2024/04/18 04:13:04 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/18 04:13:04 hraftd started successfully, listening on http://serverb:5000
+serverb-1  | 2024-04-18T04:13:04.626Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+serverc-1  | 2024-04-18T04:13:04.626Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-18T04:13:04.626Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | 2024-04-18T04:13:04.626Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T04:13:04.626Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+servera-1  | [store] 2024/04/18 04:13:04 node nodec at serverc:6000 joined successfully
+servera-1  | 2024-04-18T04:13:04.626Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+serverc-1  | 2024/04/18 04:13:04 hraftd started successfully, listening on http://serverc:5000
+serverd-1  | 2024-04-18T04:13:04.796Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T04:13:04.796Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T04:13:04.796Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024-04-18T04:13:04.796Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 04:13:04 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-18T04:13:04.797Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T04:13:04.797Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/18 04:13:04 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T04:13:04.797Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T04:13:04.797Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 04:13:04 node nodee at servere:6000 joined successfully
+servere-1  | 2024/04/18 04:13:04 hraftd started successfully, listening on http://servere:5000
+servera-1  | [store] 2024/04/18 04:13:04 node noded at serverd:6000 joined successfully
+serverd-1  | 2024/04/18 04:13:04 hraftd started successfully, listening on http://serverd:5000
+servere-1  | 2024-04-18T04:13:04.797Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T04:13:04.797Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+serverd-1  | 2024-04-18T04:13:04.797Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T04:13:04.798Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+servera-1  | 2024-04-18T04:13:04.798Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T04:13:04.798Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+client-1   |   0% 0/1000 [00:00<?, ?it/s] 12% 117/1000 [00:00<00:00, 1166.12it/s] 24% 238/1000 [00:00<00:00, 1186.38it/s] 36% 360/1000 [00:00<00:00, 1200.74it/s] 48% 482/1000 [00:00<00:00, 1206.72it/s] 60% 604/1000 [00:00<00:00, 1208.60it/s] 72% 725/1000 [00:00<00:00, 1204.77it/s] 85% 846/1000 [00:00<00:00, 1201.41it/s] 97% 967/1000 [00:00<00:00, 1191.94it/s]100% 1000/1000 [00:00<00:00, 1196.75it/s]
+client-1   |   0% 0/1000 [00:00<?, ?it/s] 14% 143/1000 [00:00<00:00, 1423.80it/s] 29% 290/1000 [00:00<00:00, 1443.93it/s] 44% 435/1000 [00:00<00:00, 1440.58it/s] 58% 580/1000 [00:00<00:00, 1444.04it/s] 72% 725/1000 [00:00<00:00, 1421.73it/s] 87% 868/1000 [00:00<00:00, 1420.66it/s]100% 1000/1000 [00:00<00:00, 1424.51it/s]
+servera-1  | 0 0
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 1000
+client-1   | RESULT | AVG COMMIT TIME: 0.00011560932300000016
+client-1   | RESULT | AVG CPU UTIL: 0%
+client-1   | RESULT | MAX MEM UTIL: 0 B
+client-1   | RESULT | END LOG SIZE: 121 B
+client-1 exited with code 0
+===================== 2024-04-18 01:38:36 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T05:38:59.524Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T05:38:59.524Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 05:38:59 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T05:39:00.884Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T05:39:00.884Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T05:39:00.884Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T05:39:00.884Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T05:39:00.884Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T05:39:00.884Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T05:39:00.884Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+serverc-1  | 2024-04-18T05:39:03.960Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T05:39:03.961Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.4:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 05:39:03 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T05:39:03.961Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | 2024-04-18T05:39:03.961Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | [store] 2024/04/18 05:39:03 node nodec at serverc:6000 joined successfully
+serverc-1  | 2024/04/18 05:39:03 hraftd started successfully, listening on http://serverc:5000
+serverc-1  | 2024-04-18T05:39:03.962Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | 2024-04-18T05:39:03.962Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T05:39:03.962Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+serverb-1  | 2024-04-18T05:39:04.069Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T05:39:04.069Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 05:39:04 received join request for remote node nodeb at serverb:6000
+servera-1  | 2024-04-18T05:39:04.070Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T05:39:04.070Z [INFO]  raft: added peer, starting replication: peer=nodeb
+servera-1  | [store] 2024/04/18 05:39:04 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/18 05:39:04 hraftd started successfully, listening on http://serverb:5000
+serverb-1  | 2024-04-18T05:39:04.070Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-18T05:39:04.070Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | 2024-04-18T05:39:04.071Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+servere-1  | 2024-04-18T05:39:04.201Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T05:39:04.201Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 05:39:04 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-18T05:39:04.202Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T05:39:04.202Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/18 05:39:04 node nodee at servere:6000 joined successfully
+servere-1  | 2024/04/18 05:39:04 hraftd started successfully, listening on http://servere:5000
+servere-1  | 2024-04-18T05:39:04.203Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T05:39:04.203Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+servera-1  | 2024-04-18T05:39:04.203Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+serverd-1  | 2024-04-18T05:39:04.324Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T05:39:04.324Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 05:39:04 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T05:39:04.325Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T05:39:04.325Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 05:39:04 node noded at serverd:6000 joined successfully
+serverd-1  | 2024/04/18 05:39:04 hraftd started successfully, listening on http://serverd:5000
+serverd-1  | 2024-04-18T05:39:04.326Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T05:39:04.326Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T05:39:04.326Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+client-1   |   0% 0/1000 [00:00<?, ?it/s] 11% 114/1000 [00:00<00:00, 1132.29it/s] 23% 232/1000 [00:00<00:00, 1154.73it/s] 35% 348/1000 [00:00<00:00, 1155.81it/s] 47% 467/1000 [00:00<00:00, 1166.62it/s] 59% 586/1000 [00:00<00:00, 1174.60it/s] 71% 706/1000 [00:00<00:00, 1180.78it/s] 82% 825/1000 [00:00<00:00, 1168.08it/s] 94% 942/1000 [00:00<00:00, 1126.80it/s]100% 1000/1000 [00:00<00:00, 1148.26it/s]
+client-1   |   0% 0/1000 [00:00<?, ?it/s] 14% 140/1000 [00:00<00:00, 1390.59it/s] 28% 280/1000 [00:00<00:00, 1359.45it/s] 42% 416/1000 [00:00<00:00, 1352.86it/s] 55% 552/1000 [00:00<00:00, 1352.18it/s] 70% 695/1000 [00:00<00:00, 1377.78it/s] 84% 838/1000 [00:00<00:00, 1394.04it/s] 98% 978/1000 [00:00<00:00, 1386.74it/s]100% 1000/1000 [00:00<00:00, 1377.06it/s]
+servera-1  | 4085 5.929919137465765
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 1000
+client-1   | RESULT | AVG COMMIT TIME: 0.00011810503800000009
+client-1   | RESULT | AVG CPU UTIL: 5.929919137465765%
+client-1   | RESULT | MAX MEM UTIL: 4085 B
+client-1   | RESULT | END LOG SIZE: 121 B
+client-1 exited with code 0
+===================== 2024-04-18 01:41:34 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | AVG COMMIT TIME: 0.00011583493299999988
+client-1   | RESULT | AVG CPU UTIL: 19.47236180904736%
+client-1   | RESULT | MAX MEM UTIL: 0.006671905517578125 MiB
+client-1   | RESULT | END LOG SIZE: 121 B
+===================== 2024-04-18 01:45:38 =====================
+===================== 2024-04-18 01:48:38 =====================
+===================== 2024-04-18 01:51:18 =====================
+===================== 2024-04-18 01:53:56 =====================
+===================== 2024-04-18 01:55:46 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T05:56:09.157Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T05:56:09.157Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 05:56:09 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T05:56:11.061Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T05:56:11.061Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T05:56:11.061Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T05:56:11.061Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T05:56:11.061Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T05:56:11.061Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T05:56:11.061Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+serverc-1  | 2024-04-18T05:56:13.556Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T05:56:13.556Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.3:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 05:56:13 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T05:56:13.557Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | 2024-04-18T05:56:13.557Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | [store] 2024/04/18 05:56:13 node nodec at serverc:6000 joined successfully
+serverc-1  | 2024/04/18 05:56:13 hraftd started successfully, listening on http://serverc:5000
+serverc-1  | 2024-04-18T05:56:13.557Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | 2024-04-18T05:56:13.557Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T05:56:13.558Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+servere-1  | 2024-04-18T05:56:13.744Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T05:56:13.744Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+serverb-1  | 2024-04-18T05:56:13.744Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T05:56:13.744Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 05:56:13 received join request for remote node nodeb at serverb:6000
+servera-1  | [store] 2024/04/18 05:56:13 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-18T05:56:13.744Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T05:56:13.744Z [INFO]  raft: added peer, starting replication: peer=nodeb
+servera-1  | [store] 2024/04/18 05:56:13 node nodeb at serverb:6000 joined successfully
+servera-1  | 2024-04-18T05:56:13.745Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T05:56:13.745Z [INFO]  raft: added peer, starting replication: peer=nodee
+serverb-1  | 2024/04/18 05:56:13 hraftd started successfully, listening on http://serverb:5000
+serverb-1  | 2024-04-18T05:56:13.745Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-18T05:56:13.745Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servere-1  | 2024-04-18T05:56:13.745Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T05:56:13.745Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+servera-1  | 2024-04-18T05:56:13.745Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+servera-1  | [store] 2024/04/18 05:56:13 node nodee at servere:6000 joined successfully
+servere-1  | 2024/04/18 05:56:13 hraftd started successfully, listening on http://servere:5000
+servera-1  | 2024-04-18T05:56:13.745Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+serverd-1  | 2024-04-18T05:56:13.851Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T05:56:13.851Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 05:56:13 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T05:56:13.851Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T05:56:13.851Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 05:56:13 node noded at serverd:6000 joined successfully
+serverd-1  | 2024/04/18 05:56:13 hraftd started successfully, listening on http://serverd:5000
+serverd-1  | 2024-04-18T05:56:13.852Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T05:56:13.852Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T05:56:13.852Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+client-1   |   0% 0/1000000 [00:00<?, ?it/s]  0% 116/1000000 [00:00<14:24, 1157.02it/s]  0% 238/1000000 [00:00<13:59, 1190.39it/s]  0% 358/1000000 [00:00<14:01, 1187.54it/s]  0% 477/1000000 [00:00<14:03, 1185.17it/s]  0% 597/1000000 [00:00<14:01, 1187.60it/s]  0% 718/1000000 [00:00<13:56, 1194.23it/s]  0% 838/1000000 [00:00<13:55, 1195.84it/s]  0% 959/1000000 [00:00<13:53, 1198.21it/s]  0% 1081/1000000 [00:00<13:50, 1202.18it/s]  0% 1203/1000000 [00:01<13:48, 1205.66it/s]  0% 1324/1000000 [00:01<13:54, 1197.11it/s]  0% 1444/1000000 [00:01<13:55, 1194.75it/s]  0% 1564/1000000 [00:01<14:09, 1175.67it/s]  0% 1685/1000000 [00:01<14:01, 1185.83it/s]  0% 1805/1000000 [00:01<14:00, 1187.54it/s]  0% 1925/1000000 [00:01<13:58, 1190.90it/s]  0% 2047/1000000 [00:01<13:52, 1199.26it/s]  0% 2169/1000000 [00:01<13:48, 1204.76it/s]  0% 2290/1000000 [00:01<13:52, 1198.55it/s]  0% 2412/1000000 [00:02<13:48, 1204.50it/s]  0% 2533/1000000 [00:02<13:48, 1204.06it/s]  0% 2655/1000000 [00:02<13:46, 1206.08it/s]  0% 2776/1000000 [00:02<13:49, 1202.78it/s]  0% 2897/1000000 [00:02<13:47, 1204.92it/s]  0% 3018/1000000 [00:02<13:51, 1199.58it/s]  0% 3138/1000000 [00:02<13:52, 1197.39it/s]  0% 3260/1000000 [00:02<13:49, 1201.42it/s]  0% 3381/1000000 [00:02<13:53, 1195.99it/s]  0% 3503/1000000 [00:02<13:48, 1202.52it/s]  0% 3624/1000000 [00:03<13:47, 1203.87it/s]  0% 3745/1000000 [00:03<13:57, 1190.13it/s]  0% 3865/1000000 [00:03<13:55, 1191.89it/s]  0% 3985/1000000 [00:03<13:55, 1191.81it/s]  0% 4107/1000000 [00:03<13:51, 1198.25it/s]  0% 4227/1000000 [00:03<13:50, 1198.69it/s]  0% 4348/1000000 [00:03<13:49, 1200.53it/s]  0% 4469/1000000 [00:03<13:50, 1198.18it/s]  0% 4589/1000000 [00:03<13:54, 1193.50it/s]  0% 4710/1000000 [00:03<13:51, 1196.36it/s]  0% 4831/1000000 [00:04<13:50, 1198.22it/s]  0% 4951/1000000 [00:04<13:54, 1191.81it/s]  1% 5071/1000000 [00:04<13:54, 1192.55it/s]  1% 5191/1000000 [00:04<13:55, 1190.40it/s]  1% 5311/1000000 [00:04<13:54, 1192.47it/s]  1% 5432/1000000 [00:04<13:51, 1195.50it/s]  1% 5553/1000000 [00:04<13:50, 1197.34it/s]  1% 5674/1000000 [00:04<13:49, 1198.54it/s]  1% 5794/1000000 [00:04<13:50, 1196.71it/s]  1% 5916/1000000 [00:04<13:47, 1201.23it/s]  1% 6037/1000000 [00:05<13:49, 1198.52it/s]  1% 6157/1000000 [00:05<13:56, 1187.73it/s]  1% 6276/1000000 [00:05<13:56, 1187.52it/s]  1% 6396/1000000 [00:05<13:54, 1189.96it/s]  1% 6516/1000000 [00:05<13:56, 1188.25it/s]  1% 6635/1000000 [00:05<14:08, 1170.53it/s]  1% 6753/1000000 [00:05<14:13, 1163.87it/s]  1% 6873/1000000 [00:05<14:06, 1173.65it/s]  1% 6993/1000000 [00:05<14:01, 1180.29it/s]  1% 7112/1000000 [00:05<14:02, 1178.80it/s]  1% 7232/1000000 [00:06<13:59, 1182.84it/s]  1% 7354/1000000 [00:06<13:52, 1192.71it/s]  1% 7476/1000000 [00:06<13:47, 1198.84it/s]  1% 7596/1000000 [00:06<13:52, 1191.93it/s]  1% 7716/1000000 [00:06<13:51, 1192.89it/s]  1% 7836/1000000 [00:06<13:53, 1190.05it/s]  1% 7956/1000000 [00:06<13:56, 1186.53it/s]  1% 8078/1000000 [00:06<13:50, 1193.88it/s]  1% 8198/1000000 [00:06<13:55, 1186.50it/s]  1% 8317/1000000 [00:06<14:05, 1173.46it/s]  1% 8435/1000000 [00:07<14:05, 1172.84it/s]  1% 8554/1000000 [00:07<14:03, 1174.98it/s]  1% 8674/1000000 [00:07<13:58, 1181.81it/s]  1% 8794/1000000 [00:07<13:56, 1184.57it/s]  1% 8913/1000000 [00:07<13:57, 1183.91it/s]  1% 9033/1000000 [00:07<13:54, 1186.95it/s]  1% 9152/1000000 [00:07<13:55, 1186.39it/s]  1% 9271/1000000 [00:07<13:55, 1186.09it/s]  1% 9390/1000000 [00:07<13:56, 1184.84it/s]  1% 9510/1000000 [00:07<13:53, 1188.34it/s]  1% 9629/1000000 [00:08<13:54, 1186.36it/s]  1% 9748/1000000 [00:08<14:01, 1176.45it/s]  1% 9867/1000000 [00:08<13:59, 1179.92it/s]  1% 9988/1000000 [00:08<13:53, 1187.24it/s]  1% 10109/1000000 [00:08<13:50, 1192.06it/s]  1% 10229/1000000 [00:08<13:48, 1194.23it/s]  1% 10349/1000000 [00:08<13:53, 1187.50it/s]  1% 10468/1000000 [00:08<13:53, 1187.17it/s]  1% 10587/1000000 [00:08<14:11, 1161.38it/s]  1% 10704/1000000 [00:08<14:14, 1157.45it/s]  1% 10821/1000000 [00:09<14:12, 1160.75it/s]  1% 10938/1000000 [00:09<14:12, 1160.23it/s]  1% 11056/1000000 [00:09<14:08, 1165.04it/s]  1% 11175/1000000 [00:09<14:04, 1170.75it/s]  1% 11293/1000000 [00:09<14:04, 1170.35it/s]  1% 11411/1000000 [00:09<15:34, 1057.87it/s]  1% 11519/1000000 [00:09<15:54, 1035.18it/s]  1% 11631/1000000 [00:09<15:35, 1056.74it/s]  1% 11743/1000000 [00:09<15:20, 1073.09it/s]  1% 11855/1000000 [00:10<15:11, 1084.64it/s]  1% 11966/1000000 [00:10<15:04, 1091.81it/s]  1% 12080/1000000 [00:10<14:54, 1104.44it/s]  1% 12199/1000000 [00:10<14:34, 1129.57it/s]  1% 12319/1000000 [00:10<14:18, 1150.01it/s]  1% 12439/1000000 [00:10<14:07, 1164.59it/s]  1% 12556/1000000 [00:10<14:12, 1158.53it/s]  1% 12675/1000000 [00:10<14:06, 1165.84it/s]  1% 12796/1000000 [00:10<13:58, 1177.72it/s]  1% 12917/1000000 [00:10<13:51, 1187.23it/s]  1% 13037/1000000 [00:11<13:50, 1189.01it/s]  1% 13157/1000000 [00:11<13:49, 1189.36it/s]  1% 13276/1000000 [00:11<13:53, 1183.65it/s]  1% 13395/1000000 [00:11<13:53, 1183.15it/s]  1% 13516/1000000 [00:11<13:49, 1189.17it/s]  1% 13635/1000000 [00:11<13:52, 1184.91it/s]  1% 13757/1000000 [00:11<13:46, 1193.82it/s]  1% 13877/1000000 [00:11<13:47, 1191.15it/s]  1% 13997/1000000 [00:11<13:48, 1189.57it/s]  1% 14116/1000000 [00:11<13:56, 1178.95it/s]  1% 14234/1000000 [00:12<19:23, 847.49it/s]   1% 14332/1000000 [00:12<22:53, 717.68it/s]  1% 14416/1000000 [00:12<25:44, 638.08it/s]  1% 14489/1000000 [00:12<27:20, 600.83it/s]  1% 14555/1000000 [00:12<29:02, 565.42it/s]  1% 14616/1000000 [00:12<29:40, 553.46it/s]  1% 14674/1000000 [00:13<30:22, 540.50it/s]  1% 14730/1000000 [00:13<30:52, 531.94it/s]  1% 14785/1000000 [00:13<31:17, 524.72it/s]  1% 14839/1000000 [00:13<31:20, 523.95it/s]  1% 14892/1000000 [00:13<32:12, 509.71it/s]  1% 14944/1000000 [00:13<32:06, 511.45it/s]  1% 14996/1000000 [00:13<32:17, 508.50it/s]  2% 15047/1000000 [00:13<34:10, 480.38it/s]  2% 15096/1000000 [00:13<34:32, 475.29it/s]  2% 15144/1000000 [00:14<36:00, 455.77it/s]  2% 15193/1000000 [00:14<35:21, 464.14it/s]  2% 15240/1000000 [00:14<37:35, 436.64it/s]  2% 15285/1000000 [00:14<38:02, 431.51it/s]  2% 15329/1000000 [00:14<39:05, 419.82it/s]  2% 15373/1000000 [00:14<38:34, 425.39it/s]  2% 15419/1000000 [00:14<37:49, 433.76it/s]  2% 15463/1000000 [00:14<40:29, 405.30it/s]  2% 15505/1000000 [00:14<40:08, 408.69it/s]  2% 15547/1000000 [00:15<41:02, 399.74it/s]  2% 15594/1000000 [00:15<39:21, 416.92it/s]  2% 15636/1000000 [00:15<40:09, 408.54it/s]  2% 15680/1000000 [00:15<39:21, 416.81it/s]  2% 15722/1000000 [00:15<48:40, 337.07it/s]  2% 15759/1000000 [00:15<1:01:44, 265.72it/s]  2% 15799/1000000 [00:15<55:43, 294.35it/s]    2% 15847/1000000 [00:15<48:38, 337.24it/s]  2% 15895/1000000 [00:16<43:58, 373.01it/s]  2% 15943/1000000 [00:16<40:53, 401.04it/s]  2% 15993/1000000 [00:16<38:24, 426.95it/s]  2% 16040/1000000 [00:16<37:23, 438.66it/s]  2% 16090/1000000 [00:16<35:59, 455.68it/s]  2% 16138/1000000 [00:16<35:29, 462.03it/s]  2% 16186/1000000 [00:16<35:31, 461.56it/s]  2% 16234/1000000 [00:16<35:09, 466.38it/s]  2% 16284/1000000 [00:16<34:30, 475.13it/s]  2% 16334/1000000 [00:16<34:01, 481.82it/s]  2% 16385/1000000 [00:17<33:37, 487.55it/s]  2% 16436/1000000 [00:17<33:13, 493.33it/s]  2% 16486/1000000 [00:17<33:36, 487.81it/s]  2% 16537/1000000 [00:17<33:17, 492.27it/s]  2% 16587/1000000 [00:17<33:27, 489.96it/s]  2% 16638/1000000 [00:17<33:12, 493.42it/s]  2% 16689/1000000 [00:17<33:00, 496.61it/s]  2% 16739/1000000 [00:17<33:08, 494.55it/s]  2% 16789/1000000 [00:17<33:05, 495.22it/s]  2% 16839/1000000 [00:17<33:11, 493.75it/s]  2% 16889/1000000 [00:18<33:11, 493.75it/s]  2% 16940/1000000 [00:18<33:01, 496.03it/s]  2% 16991/1000000 [00:18<32:56, 497.28it/s]  2% 17041/1000000 [00:18<32:57, 497.09it/s]  2% 17091/1000000 [00:18<33:08, 494.21it/s]  2% 17141/1000000 [00:18<33:03, 495.58it/s]  2% 17191/1000000 [00:18<33:07, 494.53it/s]  2% 17241/1000000 [00:18<33:32, 488.40it/s]  2% 17291/1000000 [00:18<33:24, 490.18it/s]  2% 17341/1000000 [00:19<33:18, 491.75it/s]  2% 17391/1000000 [00:19<33:13, 492.93it/s]  2% 17441/1000000 [00:19<33:11, 493.41it/s]  2% 17491/1000000 [00:19<33:20, 491.12it/s]  2% 17541/1000000 [00:19<33:15, 492.42it/s]  2% 17592/1000000 [00:19<33:03, 495.17it/s]  2% 17642/1000000 [00:19<33:06, 494.61it/s]  2% 17692/1000000 [00:19<32:59, 496.15it/s]  2% 17742/1000000 [00:19<33:07, 494.17it/s]  2% 17792/1000000 [00:19<33:46, 484.66it/s]  2% 17842/1000000 [00:20<33:35, 487.29it/s]  2% 17893/1000000 [00:20<33:14, 492.47it/s]  2% 17944/1000000 [00:20<33:02, 495.36it/s]  2% 17994/1000000 [00:20<33:29, 488.64it/s]  2% 18044/1000000 [00:20<33:22, 490.31it/s]  2% 18094/1000000 [00:20<33:17, 491.51it/s]  2% 18144/1000000 [00:20<33:28, 488.73it/s]  2% 18193/1000000 [00:20<34:15, 477.62it/s]  2% 18244/1000000 [00:20<33:40, 485.87it/s]  2% 18295/1000000 [00:20<33:18, 491.12it/s]  2% 18346/1000000 [00:21<33:05, 494.31it/s]  2% 18396/1000000 [00:21<33:06, 494.03it/s]  2% 18446/1000000 [00:21<33:19, 490.96it/s]  2% 18497/1000000 [00:21<33:06, 494.14it/s]  2% 18547/1000000 [00:21<33:00, 495.65it/s]  2% 18597/1000000 [00:21<33:04, 494.46it/s]  2% 18648/1000000 [00:21<32:48, 498.47it/s]  2% 18699/1000000 [00:21<32:42, 500.01it/s]  2% 18750/1000000 [00:21<33:02, 494.99it/s]  2% 18801/1000000 [00:21<32:50, 497.90it/s]  2% 18852/1000000 [00:22<32:45, 499.07it/s]  2% 18903/1000000 [00:22<32:38, 501.06it/s]  2% 18954/1000000 [00:22<32:47, 498.52it/s]  2% 19004/1000000 [00:22<32:55, 496.52it/s]  2% 19055/1000000 [00:22<32:49, 497.97it/s]  2% 19105/1000000 [00:22<32:55, 496.45it/s]  2% 19156/1000000 [00:22<32:50, 497.66it/s]  2% 19207/1000000 [00:22<32:45, 499.05it/s]  2% 19257/1000000 [00:22<32:56, 496.30it/s]  2% 19307/1000000 [00:22<32:56, 496.24it/s]  2% 19357/1000000 [00:23<32:59, 495.51it/s]  2% 19407/1000000 [00:23<32:57, 495.79it/s]  2% 19457/1000000 [00:23<32:54, 496.69it/s]  2% 19507/1000000 [00:23<34:02, 480.04it/s]  2% 19558/1000000 [00:23<33:34, 486.77it/s]  2% 19608/1000000 [00:23<33:23, 489.22it/s]  2% 19658/1000000 [00:23<33:12, 491.95it/s]  2% 19708/1000000 [00:23<33:15, 491.36it/s]  2% 19758/1000000 [00:23<33:05, 493.73it/s]  2% 19808/1000000 [00:24<33:03, 494.15it/s]  2% 19859/1000000 [00:24<32:53, 496.54it/s]  2% 19910/1000000 [00:24<32:40, 499.88it/s]  2% 19961/1000000 [00:24<32:42, 499.30it/s]  2% 20011/1000000 [00:24<33:03, 494.19it/s]  2% 20062/1000000 [00:24<33:00, 494.70it/s]  2% 20113/1000000 [00:24<32:53, 496.57it/s]  2% 20164/1000000 [00:24<32:45, 498.53it/s]  2% 20215/1000000 [00:24<32:38, 500.30it/s]  2% 20266/1000000 [00:24<32:37, 500.41it/s]  2% 20317/1000000 [00:25<32:33, 501.38it/s]  2% 20368/1000000 [00:25<32:33, 501.46it/s]  2% 20419/1000000 [00:25<32:48, 497.55it/s]  2% 20469/1000000 [00:25<32:52, 496.69it/s]  2% 20519/1000000 [00:25<32:57, 495.38it/s]  2% 20570/1000000 [00:25<32:47, 497.69it/s]  2% 20621/1000000 [00:25<32:34, 501.07it/s]  2% 20672/1000000 [00:25<32:30, 502.16it/s]  2% 20724/1000000 [00:25<32:20, 504.61it/s]  2% 20775/1000000 [00:25<32:33, 501.29it/s]  2% 20826/1000000 [00:26<32:57, 495.23it/s]  2% 20876/1000000 [00:26<32:55, 495.74it/s]  2% 20926/1000000 [00:26<32:58, 494.75it/s]  2% 20976/1000000 [00:26<33:00, 494.44it/s]  2% 21027/1000000 [00:26<32:52, 496.31it/s]  2% 21077/1000000 [00:26<33:04, 493.37it/s]  2% 21127/1000000 [00:26<33:00, 494.13it/s]  2% 21179/1000000 [00:26<32:39, 499.62it/s]  2% 21231/1000000 [00:26<32:25, 502.99it/s]  2% 21282/1000000 [00:26<32:29, 501.99it/s]  2% 21333/1000000 [00:27<32:52, 496.22it/s]  2% 21384/1000000 [00:27<32:43, 498.40it/s]  2% 21434/1000000 [00:27<32:41, 498.79it/s]  2% 21484/1000000 [00:27<33:02, 493.56it/s]  2% 21534/1000000 [00:27<33:19, 489.36it/s]  2% 21584/1000000 [00:27<33:10, 491.44it/s]  2% 21634/1000000 [00:27<33:03, 493.32it/s]  2% 21684/1000000 [00:27<33:11, 491.23it/s]  2% 21734/1000000 [00:27<33:29, 486.86it/s]  2% 21785/1000000 [00:27<33:10, 491.40it/s]  2% 21835/1000000 [00:28<33:01, 493.61it/s]  2% 21886/1000000 [00:28<32:47, 497.14it/s]  2% 21936/1000000 [00:28<32:50, 496.40it/s]  2% 21987/1000000 [00:28<32:38, 499.34it/s]  2% 22037/1000000 [00:28<32:49, 496.62it/s]  2% 22088/1000000 [00:28<32:43, 497.93it/s]  2% 22139/1000000 [00:28<32:37, 499.49it/s]  2% 22190/1000000 [00:28<32:36, 499.90it/s]  2% 22240/1000000 [00:28<32:37, 499.50it/s]  2% 22290/1000000 [00:29<32:40, 498.81it/s]  2% 22340/1000000 [00:29<32:39, 498.81it/s]  2% 22390/1000000 [00:29<32:43, 498.00it/s]  2% 22441/1000000 [00:29<32:40, 498.70it/s]  2% 22491/1000000 [00:29<32:46, 497.08it/s]  2% 22541/1000000 [00:29<32:43, 497.90it/s]  2% 22591/1000000 [00:29<32:42, 498.09it/s]  2% 22641/1000000 [00:29<32:42, 497.98it/s]  2% 22692/1000000 [00:29<32:36, 499.57it/s]  2% 22742/1000000 [00:29<32:47, 496.74it/s]  2% 22792/1000000 [00:30<32:59, 493.78it/s]  2% 22842/1000000 [00:30<32:55, 494.72it/s]  2% 22893/1000000 [00:30<32:45, 497.12it/s]  2% 22943/1000000 [00:30<32:49, 496.01it/s]  2% 22993/1000000 [00:30<32:55, 494.48it/s]  2% 23043/1000000 [00:30<32:53, 495.13it/s]  2% 23093/1000000 [00:30<33:01, 492.90it/s]  2% 23143/1000000 [00:30<33:05, 491.92it/s]  2% 23193/1000000 [00:30<33:07, 491.48it/s]  2% 23243/1000000 [00:30<33:04, 492.17it/s]  2% 23294/1000000 [00:31<32:48, 496.19it/s]  2% 23344/1000000 [00:31<32:44, 497.22it/s]  2% 23395/1000000 [00:31<32:40, 498.10it/s]  2% 23445/1000000 [00:31<32:58, 493.48it/s]  2% 23495/1000000 [00:31<32:51, 495.34it/s]  2% 23545/1000000 [00:31<32:54, 494.58it/s]  2% 23595/1000000 [00:31<33:11, 490.30it/s]  2% 23645/1000000 [00:31<33:00, 493.10it/s]  2% 23695/1000000 [00:31<32:57, 493.76it/s]  2% 23746/1000000 [00:31<32:47, 496.29it/s]  2% 23797/1000000 [00:32<32:39, 498.21it/s]  2% 23847/1000000 [00:32<32:49, 495.70it/s]  2% 23897/1000000 [00:32<33:03, 492.05it/s]  2% 23947/1000000 [00:32<33:09, 490.62it/s]  2% 23997/1000000 [00:32<33:02, 492.27it/s]  2% 24047/1000000 [00:32<32:56, 493.90it/s]  2% 24097/1000000 [00:32<33:04, 491.88it/s]  2% 24147/1000000 [00:32<33:15, 488.91it/s]  2% 24197/1000000 [00:32<33:10, 490.15it/s]  2% 24248/1000000 [00:32<32:51, 494.87it/s]  2% 24299/1000000 [00:33<32:41, 497.52it/s]  2% 24350/1000000 [00:33<32:36, 498.72it/s]  2% 24400/1000000 [00:33<32:41, 497.43it/s]  2% 24450/1000000 [00:33<32:39, 497.90it/s]  2% 24500/1000000 [00:33<32:39, 497.83it/s]  2% 24550/1000000 [00:33<32:38, 497.96it/s]  2% 24601/1000000 [00:33<32:25, 501.33it/s]  2% 24652/1000000 [00:33<32:30, 500.17it/s]  2% 24703/1000000 [00:33<33:02, 491.88it/s]  2% 24753/1000000 [00:33<32:55, 493.57it/s]  2% 24804/1000000 [00:34<32:38, 497.88it/s]  2% 24855/1000000 [00:34<32:30, 500.04it/s]  2% 24906/1000000 [00:34<32:34, 498.87it/s]  2% 24956/1000000 [00:34<32:43, 496.50it/s]  3% 25006/1000000 [00:34<32:44, 496.33it/s]  3% 25057/1000000 [00:34<32:39, 497.60it/s]  3% 25107/1000000 [00:34<32:39, 497.40it/s]  3% 25157/1000000 [00:34<33:11, 489.50it/s]  3% 25207/1000000 [00:34<33:08, 490.33it/s]  3% 25257/1000000 [00:35<34:29, 471.10it/s]  3% 25307/1000000 [00:35<34:00, 477.77it/s]  3% 25357/1000000 [00:35<33:35, 483.46it/s]  3% 25407/1000000 [00:35<33:26, 485.82it/s]  3% 25456/1000000 [00:35<33:40, 482.22it/s]  3% 25506/1000000 [00:35<33:26, 485.78it/s]  3% 25556/1000000 [00:35<33:13, 488.80it/s]  3% 25605/1000000 [00:35<33:19, 487.24it/s]  3% 25654/1000000 [00:35<33:25, 485.87it/s]  3% 25704/1000000 [00:35<33:14, 488.45it/s]  3% 25754/1000000 [00:36<33:01, 491.60it/s]  3% 25805/1000000 [00:36<32:43, 496.04it/s]  3% 25855/1000000 [00:36<32:43, 496.01it/s]  3% 25905/1000000 [00:36<32:40, 496.92it/s]  3% 25955/1000000 [00:36<33:03, 491.00it/s]  3% 26005/1000000 [00:36<33:08, 489.72it/s]  3% 26056/1000000 [00:36<32:54, 493.27it/s]  3% 26106/1000000 [00:36<32:58, 492.31it/s]  3% 26156/1000000 [00:36<32:55, 493.02it/s]  3% 26206/1000000 [00:36<32:48, 494.59it/s]  3% 26256/1000000 [00:37<32:45, 495.38it/s]  3% 26306/1000000 [00:37<32:54, 493.05it/s]  3% 26357/1000000 [00:37<32:44, 495.65it/s]  3% 26408/1000000 [00:37<32:34, 498.03it/s]  3% 26458/1000000 [00:37<32:38, 496.97it/s]  3% 26508/1000000 [00:37<32:44, 495.45it/s]  3% 26559/1000000 [00:37<32:36, 497.56it/s]  3% 26609/1000000 [00:37<32:37, 497.30it/s]  3% 26659/1000000 [00:37<33:06, 490.06it/s]  3% 26709/1000000 [00:37<33:02, 491.05it/s]  3% 26759/1000000 [00:38<33:23, 485.77it/s]  3% 26808/1000000 [00:38<33:23, 485.75it/s]  3% 26857/1000000 [00:38<33:29, 484.17it/s]  3% 26907/1000000 [00:38<33:22, 486.02it/s]  3% 26957/1000000 [00:38<33:09, 489.15it/s]  3% 27007/1000000 [00:38<33:05, 489.94it/s]  3% 27057/1000000 [00:38<32:57, 491.96it/s]  3% 27107/1000000 [00:38<33:07, 489.51it/s]  3% 27156/1000000 [00:38<33:08, 489.25it/s]  3% 27206/1000000 [00:38<33:00, 491.21it/s]  3% 27256/1000000 [00:39<33:12, 488.26it/s]  3% 27306/1000000 [00:39<33:05, 489.86it/s]  3% 27355/1000000 [00:39<33:16, 487.12it/s]  3% 27405/1000000 [00:39<33:11, 488.47it/s]  3% 27454/1000000 [00:39<33:17, 486.95it/s]  3% 27504/1000000 [00:39<33:12, 488.19it/s]  3% 27554/1000000 [00:39<33:01, 490.77it/s]  3% 27604/1000000 [00:39<33:00, 490.89it/s]  3% 27654/1000000 [00:39<33:11, 488.19it/s]  3% 27703/1000000 [00:39<33:17, 486.64it/s]  3% 27753/1000000 [00:40<33:11, 488.17it/s]  3% 27802/1000000 [00:40<33:13, 487.73it/s]  3% 27851/1000000 [00:40<33:10, 488.40it/s]  3% 27901/1000000 [00:40<33:03, 490.07it/s]  3% 27951/1000000 [00:40<32:54, 492.32it/s]  3% 28002/1000000 [00:40<32:42, 495.16it/s]  3% 28053/1000000 [00:40<32:30, 498.24it/s]  3% 28103/1000000 [00:40<32:29, 498.61it/s]  3% 28153/1000000 [00:40<32:28, 498.67it/s]  3% 28203/1000000 [00:41<32:56, 491.65it/s]  3% 28231/1000000 [00:41<23:33, 687.37it/s]
+client-1   | Traceback (most recent call last):
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 198, in _new_conn
+client-1   |     sock = connection.create_connection(
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+client-1   |     raise err
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/util/connection.py", line 73, in create_connection
+client-1   |     sock.connect(sa)
+client-1   | OSError: [Errno 99] Cannot assign requested address
+client-1   | 
+client-1   | The above exception was the direct cause of the following exception:
+client-1   | 
+client-1   | Traceback (most recent call last):
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+client-1   |     response = self._make_request(
+client-1   |                ^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+client-1   |     conn.request(
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 400, in request
+client-1   |     self.endheaders()
+client-1   |   File "/usr/local/lib/python3.11/http/client.py", line 1298, in endheaders
+client-1   |     self._send_output(message_body, encode_chunked=encode_chunked)
+client-1   |   File "/usr/local/lib/python3.11/http/client.py", line 1058, in _send_output
+client-1   |     self.send(msg)
+client-1   |   File "/usr/local/lib/python3.11/http/client.py", line 996, in send
+client-1   |     self.connect()
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 238, in connect
+client-1   |     self.sock = self._new_conn()
+client-1   |                 ^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 213, in _new_conn
+client-1   |     raise NewConnectionError(
+client-1   | urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x734c1e7f5710>: Failed to establish a new connection: [Errno 99] Cannot assign requested address
+client-1   | 
+client-1   | The above exception was the direct cause of the following exception:
+client-1   | 
+client-1   | Traceback (most recent call last):
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+client-1   |     resp = conn.urlopen(
+client-1   |            ^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+client-1   |     retries = retries.increment(
+client-1   |               ^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/util/retry.py", line 515, in increment
+client-1   |     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+client-1   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   | urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='servera', port=5000): Max retries exceeded with url: /key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x734c1e7f5710>: Failed to establish a new connection: [Errno 99] Cannot assign requested address'))
+client-1   | 
+client-1   | During handling of the above exception, another exception occurred:
+client-1   | 
+client-1   | Traceback (most recent call last):
+client-1   |   File "//client.py", line 72, in <module>
+client-1   |     main(args=args)
+client-1   |   File "//client.py", line 19, in main
+client-1   |     requests.post(f"{LEADER}/key", data=json.dumps({key: TEST[key]}))
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/api.py", line 115, in post
+client-1   |     return request("post", url, data=data, json=json, **kwargs)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/api.py", line 59, in request
+client-1   |     return session.request(method=method, url=url, **kwargs)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+client-1   |     resp = self.send(prep, **send_kwargs)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+client-1   |     r = adapter.send(request, **kwargs)
+client-1   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/adapters.py", line 519, in send
+client-1   |     raise ConnectionError(e, request=request)
+client-1   | requests.exceptions.ConnectionError: HTTPConnectionPool(host='servera', port=5000): Max retries exceeded with url: /key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x734c1e7f5710>: Failed to establish a new connection: [Errno 99] Cannot assign requested address'))
+client-1 exited with code 1
+===================== 2024-04-18 01:58:33 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | AVG COMMIT TIME: 0.00011423302019999988
+client-1   | RESULT | AVG CPU UTIL: 19.34477379095208%
+client-1   | RESULT | MAX MEM UTIL: 0.0065097808837890625 MiB
+client-1   | RESULT | END LOG SIZE: 121 B

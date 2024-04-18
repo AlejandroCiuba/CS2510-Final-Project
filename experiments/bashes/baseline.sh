@@ -17,7 +17,7 @@ if [ "$API" == "pysyncobj" ]; then
 elif [ "$API" == "hashicorp" ]; then
 
     docker compose -f $COMPOSE build --no-cache --quiet
-    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull #| grep -P "RESULT"
+    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull | grep -P "RESULT"
 
 else
 

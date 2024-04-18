@@ -19,10 +19,10 @@ def main(args: argparse.Namespace):
         requests.post(f"{LEADER}/key", data=json.dumps({key: TEST[key]}))
 
     for key in tqdm(TEST):
-        requests.get(f"{LEADER}/key/{key}")
+        response = requests.get(f"{LEADER}/key/{key}").json()
+        # assert response[key] == TEST[key], f"{response[key]} is not equal to {TEST[key]}"
 
-    results = requests.get(f"{LEADER}/stats")
-    print(results.json())
+    results = requests.get(f"{LEADER}/stats").json()
 
     time = results['avg']
     avg_cpu = results['cpu']
@@ -35,7 +35,7 @@ def main(args: argparse.Namespace):
     print(f"RESULT | MESSAGES SENT/REQUESTED: {args.data}")
     print(f"RESULT | AVG COMMIT TIME: {time}")
     print(f"RESULT | AVG CPU UTIL: {avg_cpu}%")
-    print(f"RESULT | MAX MEM UTIL: {ps_mem / (2**20)} MiB")
+    print(f"RESULT | MAX MEM UTIL: {ps_mem / (2**10)} kiB")
     print(f"RESULT | END LOG SIZE: {log_size} B")
 
 

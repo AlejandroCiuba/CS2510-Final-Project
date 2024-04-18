@@ -1,0 +1,828 @@
+===================== 2024-04-13 18:14:29 =====================
+===================== 2024-04-13 18:15:26 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-13T22:15:47.386Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-13T22:15:47.387Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/13 22:15:47 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-13T22:15:48.406Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-13T22:15:48.406Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-13T22:15:48.411Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-13T22:15:48.413Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-13T22:15:48.413Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-13T22:15:48.413Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-13T22:15:48.413Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+servere-1  | 2024-04-13T22:15:51.721Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-13T22:15:51.721Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.3:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/13 22:15:51 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-13T22:15:51.722Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-13T22:15:51.723Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/13 22:15:51 node nodee at servere:6000 joined successfully
+servere-1  | 2024/04/13 22:15:51 hraftd started successfully, listening on http://servere:5000
+servere-1  | 2024-04-13T22:15:51.724Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | 2024-04-13T22:15:51.724Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+servera-1  | 2024-04-13T22:15:51.725Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+serverc-1  | 2024-04-13T22:15:51.869Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-13T22:15:51.869Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024-04-13T22:15:51.870Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-13T22:15:51.870Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/13 22:15:51 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-13T22:15:51.870Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | [store] 2024/04/13 22:15:51 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-13T22:15:51.871Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | [store] 2024/04/13 22:15:51 node nodec at serverc:6000 joined successfully
+servera-1  | 2024-04-13T22:15:51.872Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+serverc-1  | 2024/04/13 22:15:51 hraftd started successfully, listening on http://serverc:5000
+serverc-1  | 2024-04-13T22:15:51.873Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-13T22:15:51.873Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-13T22:15:51.874Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | 2024-04-13T22:15:51.874Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+serverd-1  | 2024-04-13T22:15:51.876Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-13T22:15:51.876Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | [store] 2024/04/13 22:15:51 node noded at serverd:6000 joined successfully
+serverd-1  | 2024/04/13 22:15:51 hraftd started successfully, listening on http://serverd:5000
+servera-1  | 2024-04-13T22:15:51.877Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+serverb-1  | 2024-04-13T22:15:51.975Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-13T22:15:51.975Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/13 22:15:51 received join request for remote node nodeb at serverb:6000
+servera-1  | 2024-04-13T22:15:51.976Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-13T22:15:51.978Z [INFO]  raft: added peer, starting replication: peer=nodeb
+serverb-1  | 2024-04-13T22:15:51.981Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-13T22:15:51.981Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | [store] 2024/04/13 22:15:51 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/13 22:15:51 hraftd started successfully, listening on http://serverb:5000
+servera-1  | 2024-04-13T22:15:51.983Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+client-1   | HELLO WORLD servera:5000
+client-1 exited with code 0
+===================== 2024-04-17 17:40:19 =====================
+===================== 2024-04-17 17:40:28 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-17T21:43:01.588Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-17T21:43:01.652Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/17 21:43:01 hraftd started successfully, listening on http://localhost:11000
+servera-1  | 2024-04-17T21:43:03.617Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-17T21:43:03.617Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servera-1  | 2024-04-17T21:43:03.617Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-17T21:43:03.617Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-17T21:43:03.617Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-17T21:43:03.617Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-17T21:43:03.617Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverc-1  | 2024-04-17T21:43:08.049Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-17T21:43:08.050Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024/04/17 21:43:08 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024-04-17T21:43:08.256Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-17T21:43:08.256Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverb-1  | 2024/04/17 21:43:08 hraftd started successfully, listening on http://localhost:11000
+servere-1  | 2024-04-17T21:43:08.808Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-17T21:43:08.809Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servere-1  | 2024/04/17 21:43:08 hraftd started successfully, listening on http://localhost:11000
+serverd-1  | 2024-04-17T21:43:09.330Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-17T21:43:09.330Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024/04/17 21:43:09 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024-04-17T21:43:09.434Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverb-1  | 2024-04-17T21:43:09.435Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverb-1  | 2024-04-17T21:43:09.435Z [DEBUG] raft: voting for self: term=2 id=nodeb
+serverb-1  | 2024-04-17T21:43:09.435Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverb-1  | 2024-04-17T21:43:09.435Z [DEBUG] raft: vote granted: from=nodeb term=2 tally=1
+serverb-1  | 2024-04-17T21:43:09.435Z [INFO]  raft: election won: term=2 tally=1
+serverb-1  | 2024-04-17T21:43:09.435Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverc-1  | 2024-04-17T21:43:09.812Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverc-1  | 2024-04-17T21:43:09.812Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverc-1  | 2024-04-17T21:43:09.812Z [DEBUG] raft: voting for self: term=2 id=nodec
+serverc-1  | 2024-04-17T21:43:09.813Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverc-1  | 2024-04-17T21:43:09.813Z [DEBUG] raft: vote granted: from=nodec term=2 tally=1
+serverc-1  | 2024-04-17T21:43:09.813Z [INFO]  raft: election won: term=2 tally=1
+serverc-1  | 2024-04-17T21:43:09.813Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverd-1  | 2024-04-17T21:43:10.558Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverd-1  | 2024-04-17T21:43:10.558Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverd-1  | 2024-04-17T21:43:10.559Z [DEBUG] raft: voting for self: term=2 id=noded
+serverd-1  | 2024-04-17T21:43:10.559Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverd-1  | 2024-04-17T21:43:10.559Z [DEBUG] raft: vote granted: from=noded term=2 tally=1
+serverd-1  | 2024-04-17T21:43:10.559Z [INFO]  raft: election won: term=2 tally=1
+serverd-1  | 2024-04-17T21:43:10.559Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+servere-1  | 2024-04-17T21:43:10.802Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servere-1  | 2024-04-17T21:43:10.802Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servere-1  | 2024-04-17T21:43:10.802Z [DEBUG] raft: voting for self: term=2 id=nodee
+servere-1  | 2024-04-17T21:43:10.802Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servere-1  | 2024-04-17T21:43:10.802Z [DEBUG] raft: vote granted: from=nodee term=2 tally=1
+servere-1  | 2024-04-17T21:43:10.802Z [INFO]  raft: election won: term=2 tally=1
+servere-1  | 2024-04-17T21:43:10.802Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+client-1   | HELLO WORLD servera:5000
+client-1 exited with code 0
+===================== 2024-04-17 18:04:31 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-17T22:06:27.838Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-17T22:06:27.892Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/17 22:06:27 hraftd started successfully, listening on http://localhost:11000
+servera-1  | 2024-04-17T22:06:29.358Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-17T22:06:29.359Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servera-1  | 2024-04-17T22:06:29.359Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-17T22:06:29.359Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-17T22:06:29.359Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-17T22:06:29.359Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-17T22:06:29.359Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+servere-1  | 2024-04-17T22:06:33.180Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-17T22:06:33.180Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servere-1  | 2024/04/17 22:06:33 hraftd started successfully, listening on http://localhost:11000
+servere-1  | 2024-04-17T22:06:34.850Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servere-1  | 2024-04-17T22:06:34.851Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servere-1  | 2024-04-17T22:06:34.851Z [DEBUG] raft: voting for self: term=2 id=nodee
+servere-1  | 2024-04-17T22:06:34.851Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servere-1  | 2024-04-17T22:06:34.851Z [DEBUG] raft: vote granted: from=nodee term=2 tally=1
+servere-1  | 2024-04-17T22:06:34.851Z [INFO]  raft: election won: term=2 tally=1
+servere-1  | 2024-04-17T22:06:34.851Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverd-1  | 2024-04-17T22:06:35.606Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-17T22:06:35.606Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024/04/17 22:06:35 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024-04-17T22:06:35.777Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-17T22:06:35.777Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverb-1  | 2024/04/17 22:06:35 hraftd started successfully, listening on http://localhost:11000
+serverc-1  | 2024-04-17T22:06:36.006Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-17T22:06:36.006Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024/04/17 22:06:36 hraftd started successfully, listening on http://localhost:11000
+serverc-1  | 2024-04-17T22:06:37.227Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverc-1  | 2024-04-17T22:06:37.227Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverc-1  | 2024-04-17T22:06:37.227Z [DEBUG] raft: voting for self: term=2 id=nodec
+serverc-1  | 2024-04-17T22:06:37.228Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverc-1  | 2024-04-17T22:06:37.228Z [DEBUG] raft: vote granted: from=nodec term=2 tally=1
+serverc-1  | 2024-04-17T22:06:37.228Z [INFO]  raft: election won: term=2 tally=1
+serverc-1  | 2024-04-17T22:06:37.228Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverd-1  | 2024-04-17T22:06:37.505Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverd-1  | 2024-04-17T22:06:37.505Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverd-1  | 2024-04-17T22:06:37.505Z [DEBUG] raft: voting for self: term=2 id=noded
+serverd-1  | 2024-04-17T22:06:37.505Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverd-1  | 2024-04-17T22:06:37.505Z [DEBUG] raft: vote granted: from=noded term=2 tally=1
+serverd-1  | 2024-04-17T22:06:37.505Z [INFO]  raft: election won: term=2 tally=1
+serverd-1  | 2024-04-17T22:06:37.506Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverb-1  | 2024-04-17T22:06:37.591Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverb-1  | 2024-04-17T22:06:37.591Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverb-1  | 2024-04-17T22:06:37.591Z [DEBUG] raft: voting for self: term=2 id=nodeb
+serverb-1  | 2024-04-17T22:06:37.591Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverb-1  | 2024-04-17T22:06:37.591Z [DEBUG] raft: vote granted: from=nodeb term=2 tally=1
+serverb-1  | 2024-04-17T22:06:37.591Z [INFO]  raft: election won: term=2 tally=1
+serverb-1  | 2024-04-17T22:06:37.591Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+client-1   | client.sh: line 3: curl: command not found
+client-1 exited with code 127
+===================== 2024-04-17 20:15:57 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T00:16:21.695Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T00:16:21.695Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 00:16:21 hraftd started successfully, listening on http://localhost:11000
+servera-1  | 2024-04-18T00:16:23.213Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T00:16:23.213Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servera-1  | 2024-04-18T00:16:23.213Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T00:16:23.213Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T00:16:23.213Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T00:16:23.213Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T00:16:23.213Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverb-1  | 2024-04-18T00:16:26.176Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T00:16:26.176Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024-04-18T00:16:26.176Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T00:16:26.176Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024/04/18 00:16:26 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024/04/18 00:16:26 hraftd started successfully, listening on http://localhost:11000
+serverc-1  | 2024-04-18T00:16:26.269Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T00:16:26.269Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024/04/18 00:16:26 hraftd started successfully, listening on http://localhost:11000
+servere-1  | 2024-04-18T00:16:26.420Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T00:16:26.420Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servere-1  | 2024/04/18 00:16:26 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024-04-18T00:16:27.755Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverb-1  | 2024-04-18T00:16:27.755Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverb-1  | 2024-04-18T00:16:27.755Z [DEBUG] raft: voting for self: term=2 id=nodeb
+serverb-1  | 2024-04-18T00:16:27.755Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverb-1  | 2024-04-18T00:16:27.755Z [DEBUG] raft: vote granted: from=nodeb term=2 tally=1
+serverb-1  | 2024-04-18T00:16:27.755Z [INFO]  raft: election won: term=2 tally=1
+serverb-1  | 2024-04-18T00:16:27.755Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverd-1  | 2024-04-18T00:16:28.105Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverd-1  | 2024-04-18T00:16:28.105Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverd-1  | 2024-04-18T00:16:28.105Z [DEBUG] raft: voting for self: term=2 id=noded
+serverd-1  | 2024-04-18T00:16:28.105Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverd-1  | 2024-04-18T00:16:28.105Z [DEBUG] raft: vote granted: from=noded term=2 tally=1
+serverd-1  | 2024-04-18T00:16:28.105Z [INFO]  raft: election won: term=2 tally=1
+serverd-1  | 2024-04-18T00:16:28.105Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverc-1  | 2024-04-18T00:16:28.194Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverc-1  | 2024-04-18T00:16:28.194Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverc-1  | 2024-04-18T00:16:28.194Z [DEBUG] raft: voting for self: term=2 id=nodec
+serverc-1  | 2024-04-18T00:16:28.194Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverc-1  | 2024-04-18T00:16:28.194Z [DEBUG] raft: vote granted: from=nodec term=2 tally=1
+serverc-1  | 2024-04-18T00:16:28.194Z [INFO]  raft: election won: term=2 tally=1
+serverc-1  | 2024-04-18T00:16:28.194Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+servere-1  | 2024-04-18T00:16:28.333Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servere-1  | 2024-04-18T00:16:28.333Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servere-1  | 2024-04-18T00:16:28.333Z [DEBUG] raft: voting for self: term=2 id=nodee
+servere-1  | 2024-04-18T00:16:28.333Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servere-1  | 2024-04-18T00:16:28.333Z [DEBUG] raft: vote granted: from=nodee term=2 tally=1
+servere-1  | 2024-04-18T00:16:28.333Z [INFO]  raft: election won: term=2 tally=1
+servere-1  | 2024-04-18T00:16:28.333Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+client-1   | client.sh: line 3: curl: command not found
+client-1 exited with code 127
+===================== 2024-04-17 21:01:04 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T01:01:32.288Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T01:01:32.289Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 01:01:32 hraftd started successfully, listening on http://localhost:11000
+servera-1  | 2024-04-18T01:01:33.381Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T01:01:33.381Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servera-1  | 2024-04-18T01:01:33.381Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T01:01:33.381Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T01:01:33.381Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T01:01:33.381Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T01:01:33.381Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverb-1  | 2024-04-18T01:01:36.662Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T01:01:36.662Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverb-1  | 2024/04/18 01:01:36 hraftd started successfully, listening on http://localhost:11000
+serverd-1  | 2024-04-18T01:01:36.844Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T01:01:36.844Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024-04-18T01:01:36.844Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T01:01:36.844Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024/04/18 01:01:36 hraftd started successfully, listening on http://localhost:11000
+serverc-1  | 2024/04/18 01:01:36 hraftd started successfully, listening on http://localhost:11000
+servere-1  | 2024-04-18T01:01:36.963Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T01:01:36.963Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servere-1  | 2024/04/18 01:01:36 hraftd started successfully, listening on http://localhost:11000
+servere-1  | 2024-04-18T01:01:38.393Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servere-1  | 2024-04-18T01:01:38.393Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servere-1  | 2024-04-18T01:01:38.393Z [DEBUG] raft: voting for self: term=2 id=nodee
+servere-1  | 2024-04-18T01:01:38.393Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servere-1  | 2024-04-18T01:01:38.393Z [DEBUG] raft: vote granted: from=nodee term=2 tally=1
+servere-1  | 2024-04-18T01:01:38.393Z [INFO]  raft: election won: term=2 tally=1
+servere-1  | 2024-04-18T01:01:38.393Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverb-1  | 2024-04-18T01:01:38.546Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverb-1  | 2024-04-18T01:01:38.546Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverb-1  | 2024-04-18T01:01:38.546Z [DEBUG] raft: voting for self: term=2 id=nodeb
+serverb-1  | 2024-04-18T01:01:38.546Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverb-1  | 2024-04-18T01:01:38.546Z [DEBUG] raft: vote granted: from=nodeb term=2 tally=1
+serverb-1  | 2024-04-18T01:01:38.546Z [INFO]  raft: election won: term=2 tally=1
+serverb-1  | 2024-04-18T01:01:38.546Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverc-1  | 2024-04-18T01:01:38.552Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverc-1  | 2024-04-18T01:01:38.552Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverc-1  | 2024-04-18T01:01:38.552Z [DEBUG] raft: voting for self: term=2 id=nodec
+serverc-1  | 2024-04-18T01:01:38.552Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverc-1  | 2024-04-18T01:01:38.552Z [DEBUG] raft: vote granted: from=nodec term=2 tally=1
+serverc-1  | 2024-04-18T01:01:38.552Z [INFO]  raft: election won: term=2 tally=1
+serverc-1  | 2024-04-18T01:01:38.552Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverd-1  | 2024-04-18T01:01:38.777Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverd-1  | 2024-04-18T01:01:38.777Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverd-1  | 2024-04-18T01:01:38.777Z [DEBUG] raft: voting for self: term=2 id=noded
+serverd-1  | 2024-04-18T01:01:38.777Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverd-1  | 2024-04-18T01:01:38.777Z [DEBUG] raft: vote granted: from=noded term=2 tally=1
+serverd-1  | 2024-04-18T01:01:38.777Z [INFO]  raft: election won: term=2 tally=1
+serverd-1  | 2024-04-18T01:01:38.777Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+client-1   | curl: (7) Failed to connect to servera port 5000 after 0 ms: Connection refused
+client-1 exited with code 7
+===================== 2024-04-17 21:34:50 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T01:34:52.635Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T01:34:52.635Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 01:34:52 hraftd started successfully, listening on http://localhost:11000
+servera-1  | 2024-04-18T01:34:54.481Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T01:34:54.481Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servera-1  | 2024-04-18T01:34:54.481Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T01:34:54.481Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T01:34:54.481Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T01:34:54.481Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T01:34:54.481Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+servere-1  | 2024-04-18T01:34:57.139Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T01:34:57.139Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+servere-1  | 2024/04/18 01:34:57 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024-04-18T01:34:57.141Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T01:34:57.141Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverb-1  | 2024/04/18 01:34:57 hraftd started successfully, listening on http://localhost:11000
+serverc-1  | 2024-04-18T01:34:57.298Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T01:34:57.298Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024-04-18T01:34:57.298Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T01:34:57.298Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:12000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024/04/18 01:34:57 hraftd started successfully, listening on http://localhost:11000
+serverd-1  | 2024/04/18 01:34:57 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024-04-18T01:34:58.216Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverb-1  | 2024-04-18T01:34:58.216Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverb-1  | 2024-04-18T01:34:58.216Z [DEBUG] raft: voting for self: term=2 id=nodeb
+serverb-1  | 2024-04-18T01:34:58.216Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverb-1  | 2024-04-18T01:34:58.216Z [DEBUG] raft: vote granted: from=nodeb term=2 tally=1
+serverb-1  | 2024-04-18T01:34:58.216Z [INFO]  raft: election won: term=2 tally=1
+serverb-1  | 2024-04-18T01:34:58.216Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+servere-1  | 2024-04-18T01:34:58.304Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servere-1  | 2024-04-18T01:34:58.304Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+servere-1  | 2024-04-18T01:34:58.304Z [DEBUG] raft: voting for self: term=2 id=nodee
+servere-1  | 2024-04-18T01:34:58.304Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servere-1  | 2024-04-18T01:34:58.304Z [DEBUG] raft: vote granted: from=nodee term=2 tally=1
+servere-1  | 2024-04-18T01:34:58.304Z [INFO]  raft: election won: term=2 tally=1
+servere-1  | 2024-04-18T01:34:58.304Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverd-1  | 2024-04-18T01:34:58.517Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverd-1  | 2024-04-18T01:34:58.517Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverd-1  | 2024-04-18T01:34:58.517Z [DEBUG] raft: voting for self: term=2 id=noded
+serverd-1  | 2024-04-18T01:34:58.517Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverd-1  | 2024-04-18T01:34:58.517Z [DEBUG] raft: vote granted: from=noded term=2 tally=1
+serverd-1  | 2024-04-18T01:34:58.517Z [INFO]  raft: election won: term=2 tally=1
+serverd-1  | 2024-04-18T01:34:58.517Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+serverc-1  | 2024-04-18T01:34:58.745Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+serverc-1  | 2024-04-18T01:34:58.745Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:12000 [Candidate]" term=2
+serverc-1  | 2024-04-18T01:34:58.745Z [DEBUG] raft: voting for self: term=2 id=nodec
+serverc-1  | 2024-04-18T01:34:58.745Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+serverc-1  | 2024-04-18T01:34:58.745Z [DEBUG] raft: vote granted: from=nodec term=2 tally=1
+serverc-1  | 2024-04-18T01:34:58.745Z [INFO]  raft: election won: term=2 tally=1
+serverc-1  | 2024-04-18T01:34:58.745Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:12000 [Leader]"
+client-1   | curl: (7) Failed to connect to servera port 5000 after 0 ms: Connection refused
+client-1 exited with code 7
+===================== 2024-04-17 22:28:27 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T02:28:49.220Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T02:28:49.220Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 02:28:49 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T02:28:50.653Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T02:28:50.653Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T02:28:50.653Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T02:28:50.654Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T02:28:50.654Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T02:28:50.654Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T02:28:50.654Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+serverb-1  | 2024-04-18T02:28:53.585Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T02:28:53.585Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.4:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:28:53 received join request for remote node nodeb at serverb:6000
+servera-1  | 2024-04-18T02:28:53.586Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T02:28:53.586Z [INFO]  raft: added peer, starting replication: peer=nodeb
+servera-1  | [store] 2024/04/18 02:28:53 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/18 02:28:53 hraftd started successfully, listening on http://serverb:5000
+serverb-1  | 2024-04-18T02:28:53.586Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:28:53.587Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | 2024-04-18T02:28:53.587Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+serverd-1  | 2024-04-18T02:28:53.718Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T02:28:53.718Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:28:53 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T02:28:53.719Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T02:28:53.719Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 02:28:53 node noded at serverd:6000 joined successfully
+serverd-1  | 2024/04/18 02:28:53 hraftd started successfully, listening on http://serverd:5000
+serverd-1  | 2024-04-18T02:28:53.719Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:28:53.719Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T02:28:53.719Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+serverc-1  | 2024-04-18T02:28:53.774Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T02:28:53.774Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:28:53 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T02:28:53.774Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | 2024-04-18T02:28:53.774Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | [store] 2024/04/18 02:28:53 node nodec at serverc:6000 joined successfully
+serverc-1  | 2024/04/18 02:28:53 hraftd started successfully, listening on http://serverc:5000
+serverc-1  | 2024-04-18T02:28:53.775Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:28:53.775Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T02:28:53.775Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+servere-1  | 2024-04-18T02:28:53.818Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T02:28:53.818Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:28:53 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-18T02:28:53.819Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T02:28:53.819Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/18 02:28:53 node nodee at servere:6000 joined successfully
+servere-1  | 2024/04/18 02:28:53 hraftd started successfully, listening on http://servere:5000
+servere-1  | 2024-04-18T02:28:53.819Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:28:53.819Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+servera-1  | 2024-04-18T02:28:53.819Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+client-1 exited with code 0
+===================== 2024-04-17 22:40:19 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T02:40:40.814Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T02:40:40.814Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 02:40:40 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T02:40:42.611Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T02:40:42.611Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T02:40:42.611Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T02:40:42.611Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T02:40:42.611Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T02:40:42.611Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T02:40:42.611Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+servere-1  | 2024-04-18T02:40:45.309Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T02:40:45.309Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.3:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:40:45 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-18T02:40:45.310Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T02:40:45.310Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/18 02:40:45 node nodee at servere:6000 joined successfully
+servere-1  | 2024/04/18 02:40:45 hraftd started successfully, listening on http://servere:5000
+servere-1  | 2024-04-18T02:40:45.310Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:40:45.310Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+servera-1  | 2024-04-18T02:40:45.310Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+serverc-1  | 2024-04-18T02:40:45.357Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T02:40:45.357Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:40:45 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T02:40:45.358Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | 2024-04-18T02:40:45.358Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | [store] 2024/04/18 02:40:45 node nodec at serverc:6000 joined successfully
+serverc-1  | 2024/04/18 02:40:45 hraftd started successfully, listening on http://serverc:5000
+serverc-1  | 2024-04-18T02:40:45.358Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:40:45.358Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T02:40:45.358Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+serverb-1  | 2024-04-18T02:40:45.531Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T02:40:45.531Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024-04-18T02:40:45.531Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T02:40:45.531Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:40:45 received join request for remote node noded at serverd:6000
+servera-1  | [store] 2024/04/18 02:40:45 received join request for remote node nodeb at serverb:6000
+servera-1  | 2024-04-18T02:40:45.531Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T02:40:45.531Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 02:40:45 node noded at serverd:6000 joined successfully
+servera-1  | 2024-04-18T02:40:45.532Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T02:40:45.532Z [INFO]  raft: added peer, starting replication: peer=nodeb
+serverd-1  | 2024/04/18 02:40:45 hraftd started successfully, listening on http://serverd:5000
+servera-1  | [store] 2024/04/18 02:40:45 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/18 02:40:45 hraftd started successfully, listening on http://serverb:5000
+serverd-1  | 2024-04-18T02:40:45.532Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:40:45.532Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T02:40:45.532Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+serverb-1  | 2024-04-18T02:40:45.532Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:40:45.532Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | 2024-04-18T02:40:45.532Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+client-1   |   File "//client.sh", line 3
+client-1   |     python client.sh -s $LEADER -d 100
+client-1   |            ^^^^^^
+client-1   | SyntaxError: invalid syntax
+client-1 exited with code 1
+===================== 2024-04-17 22:41:13 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T02:41:34.795Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T02:41:34.795Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 02:41:34 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T02:41:35.980Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T02:41:35.980Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T02:41:35.980Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T02:41:35.980Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T02:41:35.980Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T02:41:35.980Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T02:41:35.980Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+serverd-1  | 2024-04-18T02:41:39.187Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T02:41:39.187Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.4:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:41:39 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T02:41:39.188Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T02:41:39.188Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 02:41:39 node noded at serverd:6000 joined successfully
+serverd-1  | 2024/04/18 02:41:39 hraftd started successfully, listening on http://serverd:5000
+servere-1  | 2024-04-18T02:41:39.188Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T02:41:39.188Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.3:6000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024-04-18T02:41:39.188Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:41:39.188Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T02:41:39.188Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+servera-1  | [store] 2024/04/18 02:41:39 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-18T02:41:39.189Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T02:41:39.189Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/18 02:41:39 node nodee at servere:6000 joined successfully
+servere-1  | 2024/04/18 02:41:39 hraftd started successfully, listening on http://servere:5000
+servere-1  | 2024-04-18T02:41:39.189Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:41:39.189Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+servera-1  | 2024-04-18T02:41:39.189Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+serverb-1  | 2024-04-18T02:41:39.495Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T02:41:39.495Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:41:39 received join request for remote node nodeb at serverb:6000
+servera-1  | 2024-04-18T02:41:39.496Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T02:41:39.496Z [INFO]  raft: added peer, starting replication: peer=nodeb
+serverc-1  | 2024-04-18T02:41:39.496Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T02:41:39.496Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:41:39 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/18 02:41:39 hraftd started successfully, listening on http://serverb:5000
+serverb-1  | 2024-04-18T02:41:39.496Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:41:39.496Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | [store] 2024/04/18 02:41:39 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T02:41:39.497Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | 2024-04-18T02:41:39.497Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+servera-1  | 2024-04-18T02:41:39.497Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | [store] 2024/04/18 02:41:39 node nodec at serverc:6000 joined successfully
+serverc-1  | 2024/04/18 02:41:39 hraftd started successfully, listening on http://serverc:5000
+serverc-1  | 2024-04-18T02:41:39.497Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:41:39.497Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T02:41:39.497Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1351.35it/s]
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1396.72it/s]
+client-1   | Traceback (most recent call last):
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/models.py", line 971, in json
+client-1   |     return complexjson.loads(self.text, **kwargs)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/json/__init__.py", line 346, in loads
+client-1   |     return _default_decoder.decode(s)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/json/decoder.py", line 337, in decode
+client-1   |     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+client-1   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/json/decoder.py", line 355, in raw_decode
+client-1   |     raise JSONDecodeError("Expecting value", s, err.value) from None
+client-1   | json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+client-1   | 
+client-1   | During handling of the above exception, another exception occurred:
+client-1   | 
+client-1   | Traceback (most recent call last):
+client-1   |   File "//client.py", line 72, in <module>
+client-1   |     main(args=args)
+client-1   |   File "//client.py", line 23, in main
+client-1   |     results = requests.get(f"{LEADER}/stats").json()
+client-1   |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/models.py", line 975, in json
+client-1   |     raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+client-1   | requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+client-1 exited with code 1
+===================== 2024-04-17 22:43:39 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T02:44:05.219Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T02:44:05.219Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 02:44:05 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T02:44:06.375Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T02:44:06.375Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T02:44:06.375Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T02:44:06.375Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T02:44:06.375Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T02:44:06.375Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T02:44:06.375Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+serverc-1  | 2024-04-18T02:44:09.716Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T02:44:09.716Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+servere-1  | 2024-04-18T02:44:09.716Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T02:44:09.716Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.4:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:44:09 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T02:44:09.717Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | [store] 2024/04/18 02:44:09 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-18T02:44:09.717Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | 2024-04-18T02:44:09.717Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T02:44:09.717Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/18 02:44:09 node nodec at serverc:6000 joined successfully
+serverc-1  | 2024/04/18 02:44:09 hraftd started successfully, listening on http://serverc:5000
+servere-1  | 2024-04-18T02:44:09.718Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+serverc-1  | 2024-04-18T02:44:09.718Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:44:09.718Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+servera-1  | 2024-04-18T02:44:09.718Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T02:44:09.718Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+servera-1  | [store] 2024/04/18 02:44:09 node nodee at servere:6000 joined successfully
+servera-1  | 2024-04-18T02:44:09.718Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+servere-1  | 2024/04/18 02:44:09 hraftd started successfully, listening on http://servere:5000
+serverb-1  | 2024-04-18T02:44:09.860Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T02:44:09.860Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T02:44:09.860Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024-04-18T02:44:09.860Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:44:09 received join request for remote node nodeb at serverb:6000
+servera-1  | [store] 2024/04/18 02:44:09 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T02:44:09.861Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T02:44:09.861Z [INFO]  raft: added peer, starting replication: peer=nodeb
+servera-1  | [store] 2024/04/18 02:44:09 node nodeb at serverb:6000 joined successfully
+servera-1  | 2024-04-18T02:44:09.861Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T02:44:09.861Z [INFO]  raft: added peer, starting replication: peer=noded
+serverb-1  | 2024/04/18 02:44:09 hraftd started successfully, listening on http://serverb:5000
+servera-1  | [store] 2024/04/18 02:44:09 node noded at serverd:6000 joined successfully
+serverb-1  | 2024-04-18T02:44:09.861Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+serverd-1  | 2024/04/18 02:44:09 hraftd started successfully, listening on http://serverd:5000
+servera-1  | 2024-04-18T02:44:09.861Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+serverd-1  | 2024-04-18T02:44:09.862Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:44:09.862Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T02:44:09.862Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+servera-1  | 2024-04-18T02:44:09.862Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1497.31it/s]
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1436.10it/s]
+client-1   | b''
+client-1   | <Response [400]>
+client-1   | Traceback (most recent call last):
+client-1   |   File "//client.py", line 73, in <module>
+client-1   |     main(args=args)
+client-1   |   File "//client.py", line 28, in main
+client-1   |     time = results['avg']
+client-1   |            ~~~~~~~^^^^^^^
+client-1   | TypeError: 'Response' object is not subscriptable
+client-1 exited with code 1
+===================== 2024-04-17 22:48:24 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T02:48:51.355Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T02:48:51.355Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 02:48:51 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T02:48:52.741Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T02:48:52.741Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T02:48:52.741Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T02:48:52.741Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T02:48:52.741Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T02:48:52.741Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T02:48:52.741Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+serverd-1  | 2024-04-18T02:48:55.689Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T02:48:55.689Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.3:6000 [Follower]" leader-address= leader-id=
+serverb-1  | 2024-04-18T02:48:55.689Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T02:48:55.689Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.4:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:48:55 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T02:48:55.690Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T02:48:55.690Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 02:48:55 node noded at serverd:6000 joined successfully
+serverd-1  | 2024/04/18 02:48:55 hraftd started successfully, listening on http://serverd:5000
+servera-1  | [store] 2024/04/18 02:48:55 received join request for remote node nodeb at serverb:6000
+servera-1  | 2024-04-18T02:48:55.690Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T02:48:55.690Z [INFO]  raft: added peer, starting replication: peer=nodeb
+serverd-1  | 2024-04-18T02:48:55.690Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+serverb-1  | 2024-04-18T02:48:55.690Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:48:55.690Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T02:48:55.690Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | 2024-04-18T02:48:55.690Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+servera-1  | 2024-04-18T02:48:55.690Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+servera-1  | [store] 2024/04/18 02:48:55 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/18 02:48:55 hraftd started successfully, listening on http://serverb:5000
+serverc-1  | 2024-04-18T02:48:55.856Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T02:48:55.856Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T02:48:55.856Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024-04-18T02:48:55.856Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:48:55 received join request for remote node nodee at servere:6000
+servera-1  | [store] 2024/04/18 02:48:55 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T02:48:55.857Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T02:48:55.857Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/18 02:48:55 node nodee at servere:6000 joined successfully
+servera-1  | 2024-04-18T02:48:55.857Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | 2024-04-18T02:48:55.857Z [INFO]  raft: added peer, starting replication: peer=nodec
+servere-1  | 2024/04/18 02:48:55 hraftd started successfully, listening on http://servere:5000
+servera-1  | [store] 2024/04/18 02:48:55 node nodec at serverc:6000 joined successfully
+serverc-1  | 2024/04/18 02:48:55 hraftd started successfully, listening on http://serverc:5000
+servere-1  | 2024-04-18T02:48:55.857Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:48:55.857Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+serverc-1  | 2024-04-18T02:48:55.857Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:48:55.857Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T02:48:55.858Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+servera-1  | 2024-04-18T02:48:55.858Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1360.53it/s]
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1348.70it/s]
+client-1   | {'Date': 'Thu, 18 Apr 2024 02:49:01 GMT', 'Content-Length': '0'}
+client-1 exited with code 0
+===================== 2024-04-17 22:57:16 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T02:57:47.960Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T02:57:47.960Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 02:57:47 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T02:57:49.533Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T02:57:49.533Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T02:57:49.533Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T02:57:49.533Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T02:57:49.534Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T02:57:49.534Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T02:57:49.534Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+servere-1  | 2024-04-18T02:57:52.333Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T02:57:52.333Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.3:6000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024-04-18T02:57:52.333Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverc-1  | 2024-04-18T02:57:52.333Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.4:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:57:52 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T02:57:52.334Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | [store] 2024/04/18 02:57:52 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-18T02:57:52.334Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | 2024-04-18T02:57:52.334Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T02:57:52.334Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/18 02:57:52 node nodec at serverc:6000 joined successfully
+serverc-1  | 2024/04/18 02:57:52 hraftd started successfully, listening on http://serverc:5000
+servere-1  | 2024-04-18T02:57:52.335Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+serverc-1  | 2024-04-18T02:57:52.335Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:57:52.335Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+servera-1  | 2024-04-18T02:57:52.335Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T02:57:52.335Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+servera-1  | [store] 2024/04/18 02:57:52 node nodee at servere:6000 joined successfully
+servera-1  | 2024-04-18T02:57:52.335Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+servere-1  | 2024/04/18 02:57:52 hraftd started successfully, listening on http://servere:5000
+serverb-1  | 2024-04-18T02:57:52.514Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T02:57:52.514Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:57:52 received join request for remote node nodeb at serverb:6000
+servera-1  | 2024-04-18T02:57:52.514Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T02:57:52.514Z [INFO]  raft: added peer, starting replication: peer=nodeb
+servera-1  | [store] 2024/04/18 02:57:52 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/18 02:57:52 hraftd started successfully, listening on http://serverb:5000
+serverb-1  | 2024-04-18T02:57:52.515Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:57:52.515Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | 2024-04-18T02:57:52.515Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+serverd-1  | 2024-04-18T02:57:52.624Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T02:57:52.625Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 02:57:52 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T02:57:52.625Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T02:57:52.625Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 02:57:52 node noded at serverd:6000 joined successfully
+serverd-1  | 2024/04/18 02:57:52 hraftd started successfully, listening on http://serverd:5000
+serverd-1  | 2024-04-18T02:57:52.626Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T02:57:52.626Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T02:57:52.626Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1427.86it/s]
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1431.77it/s]
+client-1   | {'Date': 'Thu, 18 Apr 2024 02:57:57 GMT', 'Content-Length': '0'}
+client-1 exited with code 0
+===================== 2024-04-17 23:03:37 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T03:04:16.016Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T03:04:16.016Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 03:04:16 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T03:04:17.813Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T03:04:17.813Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T03:04:17.813Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T03:04:17.813Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T03:04:17.813Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T03:04:17.813Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T03:04:17.813Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+serverd-1  | 2024-04-18T03:04:20.404Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T03:04:20.404Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.3:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 03:04:20 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T03:04:20.405Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T03:04:20.405Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 03:04:20 node noded at serverd:6000 joined successfully
+serverc-1  | 2024-04-18T03:04:20.405Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024/04/18 03:04:20 hraftd started successfully, listening on http://serverd:5000
+serverc-1  | 2024-04-18T03:04:20.405Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.4:6000 [Follower]" leader-address= leader-id=
+serverd-1  | 2024-04-18T03:04:20.406Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | [store] 2024/04/18 03:04:20 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T03:04:20.406Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | 2024-04-18T03:04:20.406Z [INFO]  raft: added peer, starting replication: peer=nodec
+servera-1  | 2024-04-18T03:04:20.406Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T03:04:20.406Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+servera-1  | [store] 2024/04/18 03:04:20 node nodec at serverc:6000 joined successfully
+serverc-1  | 2024/04/18 03:04:20 hraftd started successfully, listening on http://serverc:5000
+serverc-1  | 2024-04-18T03:04:20.406Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-18T03:04:20.406Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | 2024-04-18T03:04:20.406Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+serverb-1  | 2024-04-18T03:04:20.706Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T03:04:20.706Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 03:04:20 received join request for remote node nodeb at serverb:6000
+servera-1  | 2024-04-18T03:04:20.707Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T03:04:20.707Z [INFO]  raft: added peer, starting replication: peer=nodeb
+servere-1  | 2024-04-18T03:04:20.707Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T03:04:20.707Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 03:04:20 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/18 03:04:20 hraftd started successfully, listening on http://serverb:5000
+serverb-1  | 2024-04-18T03:04:20.707Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T03:04:20.707Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | [store] 2024/04/18 03:04:20 received join request for remote node nodee at servere:6000
+servera-1  | 2024-04-18T03:04:20.708Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:noded Address:serverd:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T03:04:20.708Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | 2024-04-18T03:04:20.708Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+servera-1  | [store] 2024/04/18 03:04:20 node nodee at servere:6000 joined successfully
+servere-1  | 2024/04/18 03:04:20 hraftd started successfully, listening on http://servere:5000
+servere-1  | 2024-04-18T03:04:20.708Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T03:04:20.708Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+servera-1  | 2024-04-18T03:04:20.708Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1396.06it/s]
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1426.28it/s]
+client-1   | Traceback (most recent call last):
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/models.py", line 971, in json
+client-1   |     return complexjson.loads(self.text, **kwargs)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/json/__init__.py", line 346, in loads
+client-1   |     return _default_decoder.decode(s)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/json/decoder.py", line 337, in decode
+client-1   |     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+client-1   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/json/decoder.py", line 355, in raw_decode
+client-1   |     raise JSONDecodeError("Expecting value", s, err.value) from None
+client-1   | json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+client-1   | 
+client-1   | During handling of the above exception, another exception occurred:
+client-1   | 
+client-1   | Traceback (most recent call last):
+client-1   |   File "//client.py", line 74, in <module>
+client-1   |     main(args=args)
+client-1   |   File "//client.py", line 24, in main
+client-1   |     print(results.json())
+client-1   |           ^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/models.py", line 975, in json
+client-1   |     raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+client-1   | requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+client-1 exited with code 1
+===================== 2024-04-17 23:35:20 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024-04-18T03:35:42.748Z [INFO]  raft: initial configuration: index=0 servers=[]
+servera-1  | 2024-04-18T03:35:42.748Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.2:6000 [Follower]" leader-address= leader-id=
+servera-1  | 2024/04/18 03:35:42 hraftd started successfully, listening on http://servera:5000
+servera-1  | 2024-04-18T03:35:44.180Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+servera-1  | 2024-04-18T03:35:44.180Z [INFO]  raft: entering candidate state: node="Node at 172.20.0.2:6000 [Candidate]" term=2
+servera-1  | 2024-04-18T03:35:44.180Z [DEBUG] raft: voting for self: term=2 id=nodea
+servera-1  | 2024-04-18T03:35:44.180Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+servera-1  | 2024-04-18T03:35:44.180Z [DEBUG] raft: vote granted: from=nodea term=2 tally=1
+servera-1  | 2024-04-18T03:35:44.180Z [INFO]  raft: election won: term=2 tally=1
+servera-1  | 2024-04-18T03:35:44.180Z [INFO]  raft: entering leader state: leader="Node at 172.20.0.2:6000 [Leader]"
+serverb-1  | 2024-04-18T03:35:47.133Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverb-1  | 2024-04-18T03:35:47.133Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.4:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 03:35:47 received join request for remote node nodeb at serverb:6000
+servera-1  | 2024-04-18T03:35:47.134Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodeb server-addr=serverb:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000}]"
+servera-1  | 2024-04-18T03:35:47.134Z [INFO]  raft: added peer, starting replication: peer=nodeb
+servera-1  | [store] 2024/04/18 03:35:47 node nodeb at serverb:6000 joined successfully
+serverb-1  | 2024/04/18 03:35:47 hraftd started successfully, listening on http://serverb:5000
+serverb-1  | 2024-04-18T03:35:47.134Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+servera-1  | 2024-04-18T03:35:47.135Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodeb serverb:6000}" next=1
+servera-1  | 2024-04-18T03:35:47.135Z [INFO]  raft: pipelining replication: peer="{Voter nodeb serverb:6000}"
+serverc-1  | 2024-04-18T03:35:47.320Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T03:35:47.320Z [INFO]  raft: initial configuration: index=0 servers=[]
+servere-1  | 2024-04-18T03:35:47.320Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.5:6000 [Follower]" leader-address= leader-id=
+serverc-1  | 2024-04-18T03:35:47.321Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.6:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 03:35:47 received join request for remote node nodee at servere:6000
+servera-1  | [store] 2024/04/18 03:35:47 received join request for remote node nodec at serverc:6000
+servera-1  | 2024-04-18T03:35:47.321Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodee server-addr=servere:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000}]"
+servera-1  | 2024-04-18T03:35:47.321Z [INFO]  raft: added peer, starting replication: peer=nodee
+servera-1  | [store] 2024/04/18 03:35:47 node nodee at servere:6000 joined successfully
+servera-1  | 2024-04-18T03:35:47.321Z [INFO]  raft: updating configuration: command=AddVoter server-id=nodec server-addr=serverc:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodec Address:serverc:6000}]"
+servera-1  | 2024-04-18T03:35:47.321Z [INFO]  raft: added peer, starting replication: peer=nodec
+servere-1  | 2024/04/18 03:35:47 hraftd started successfully, listening on http://servere:5000
+servere-1  | 2024-04-18T03:35:47.322Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+servera-1  | 2024-04-18T03:35:47.322Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodee servere:6000}" next=1
+serverc-1  | 2024-04-18T03:35:47.322Z [WARN]  raft: failed to get previous log: previous-index=5 last-index=0 error="log not found"
+servera-1  | 2024-04-18T03:35:47.322Z [INFO]  raft: pipelining replication: peer="{Voter nodee servere:6000}"
+servera-1  | 2024-04-18T03:35:47.322Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter nodec serverc:6000}" next=1
+servera-1  | [store] 2024/04/18 03:35:47 node nodec at serverc:6000 joined successfully
+servera-1  | 2024-04-18T03:35:47.322Z [INFO]  raft: pipelining replication: peer="{Voter nodec serverc:6000}"
+serverc-1  | 2024/04/18 03:35:47 hraftd started successfully, listening on http://serverc:5000
+serverd-1  | 2024-04-18T03:35:47.396Z [INFO]  raft: initial configuration: index=0 servers=[]
+serverd-1  | 2024-04-18T03:35:47.396Z [INFO]  raft: entering follower state: follower="Node at 172.20.0.7:6000 [Follower]" leader-address= leader-id=
+servera-1  | [store] 2024/04/18 03:35:47 received join request for remote node noded at serverd:6000
+servera-1  | 2024-04-18T03:35:47.396Z [INFO]  raft: updating configuration: command=AddVoter server-id=noded server-addr=serverd:6000 servers="[{Suffrage:Voter ID:nodea Address:172.20.0.2:6000} {Suffrage:Voter ID:nodeb Address:serverb:6000} {Suffrage:Voter ID:nodee Address:servere:6000} {Suffrage:Voter ID:nodec Address:serverc:6000} {Suffrage:Voter ID:noded Address:serverd:6000}]"
+servera-1  | 2024-04-18T03:35:47.396Z [INFO]  raft: added peer, starting replication: peer=noded
+servera-1  | [store] 2024/04/18 03:35:47 node noded at serverd:6000 joined successfully
+serverd-1  | 2024/04/18 03:35:47 hraftd started successfully, listening on http://serverd:5000
+serverd-1  | 2024-04-18T03:35:47.397Z [WARN]  raft: failed to get previous log: previous-index=6 last-index=0 error="log not found"
+servera-1  | 2024-04-18T03:35:47.397Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter noded serverd:6000}" next=1
+servera-1  | 2024-04-18T03:35:47.397Z [INFO]  raft: pipelining replication: peer="{Voter noded serverd:6000}"
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1189.49it/s]
+client-1   |   0% 0/100 [00:00<?, ?it/s]100% 100/100 [00:00<00:00, 1483.82it/s]
+client-1   | {'avg': 0.00011754145000000002, 'rss': 0, 'cpu': 0, 'log': 121}
+client-1 exited with code 0

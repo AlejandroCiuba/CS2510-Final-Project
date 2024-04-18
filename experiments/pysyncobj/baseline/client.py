@@ -23,11 +23,7 @@ def main(args: argparse.Namespace):
 
         response = requests.post(f"{LEADER}/user/{key}/{TEST[key]}")
         value = response.json()
-
-        try:
-            assert TEST[key] == value[key]
-        except AssertionError:
-            print(f"{key}: {TEST[key]} | {value}")
+        assert TEST[key] == value[key], f"{key}: {TEST[key]} | {value}"
 
     for node in SERVERS:
         print(requests.get(f"{node}/node/status").json())
@@ -36,11 +32,7 @@ def main(args: argparse.Namespace):
 
         response = requests.get(f"{LEADER}/user/{key}")
         value = response.json()
-
-        try:
-            assert TEST[key] == value[key]
-        except AssertionError:
-            print(f"{key}: {TEST[key]} | {value}")
+        assert TEST[key] == value[key], f"{key}: {TEST[key]} | {value}"
 
     for node in SERVERS:
         print(requests.get(f"{node}/node/status").json())
@@ -60,7 +52,7 @@ def main(args: argparse.Namespace):
     print(f"RESULT | MESSAGES SENT/REQUESTED: {args.data}")
     print(f"RESULT | AVG COMMIT TIME: {sum(times) / len(times)}")
     print(f"RESULT | AVG CPU UTIL: {avg_cpu}%")
-    print(f"RESULT | MAX MEM UTIL: {ps_mem} MiB")
+    print(f"RESULT | MAX MEM UTIL: {ps_mem / (2**20)} MiB")
     print(f"RESULT | END LOG SIZE: {log_size} B")
 
 

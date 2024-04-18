@@ -57,7 +57,7 @@ def node_metadata():
 
     metadata = {"vault": TIMERVAULT.to_dict(),
                 "avg_cpu": PROC.cpu_percent(),
-                "ps_mem": PROC.memory_info().rss / (2**20),  # MB
+                "ps_mem": PROC.memory_info().rss,  # B
                 "log_size": asizeof.asized(SYNCOBJ._SyncObj__raftLog).size, }  # B
 
     return json.dumps(metadata), 201

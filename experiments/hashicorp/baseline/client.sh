@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-curl $LEADER/stats
+python client.py -s $LEADER -d 100

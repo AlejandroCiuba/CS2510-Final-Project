@@ -14,3 +14,6 @@ RUN go install
 WORKDIR /server
 RUN mkdir nodes
 COPY server.sh .
+
+# Skeleton
+COPY skeleton ./bin

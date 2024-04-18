@@ -29,8 +29,8 @@ def main(args: argparse.Namespace):
     ps_mem = results['rss']
     log_size = results['log']
 
-    # if "test" in metadata.keys():
-    #     print("RESULTS ARE FROM A SKELETON")
+    if args.skeleton:
+        print("RESULTS ARE FROM A SKELETON")
 
     print(f"RESULT | MESSAGES SENT/REQUESTED: {args.data}")
     print(f"RESULT | AVG COMMIT TIME: {time}")
@@ -54,6 +54,13 @@ def add_args(parser: argparse.ArgumentParser):
         "--server",
         type=http,
         help="Server addresses with ports.\n \n",
+    )
+
+    parser.add_argument(
+        "-k",
+        "--skeleton",
+        action="store_true",
+        help="Add if it is a skeleton run. Spooky ooO!\n \n",
     )
 
 

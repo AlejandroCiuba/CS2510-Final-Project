@@ -1,0 +1,120 @@
+===================== 2024-04-18 02:36:44 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | AVG COMMIT TIME: 0.00011828190540000092
+client-1   | RESULT | AVG CPU UTIL: 19.617074701820105%
+client-1   | RESULT | MAX MEM UTIL: 7.0771484375 kiB
+client-1   | RESULT | END LOG SIZE: 121 B
+===================== 2024-04-18 02:41:20 =====================
+===================== 2024-04-18 02:44:01 =====================
+===================== 2024-04-18 02:45:52 =====================
+===================== 2024-04-18 02:48:31 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024/04/18 06:48:52 hraftd started successfully, listening on http://localhost:11000
+serverc-1  | 2024/04/18 06:48:57 hraftd started successfully, listening on http://localhost:11000
+servere-1  | 2024/04/18 06:48:57 hraftd started successfully, listening on http://localhost:11000
+serverd-1  | 2024/04/18 06:48:57 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024/04/18 06:48:57 hraftd started successfully, listening on http://localhost:11000
+client-1   | Traceback (most recent call last):
+client-1   |   File "//client.py", line 77, in <module>
+client-1   |     add_args(parser)
+client-1   |   File "//client.py", line 59, in add_args
+client-1   |     parser.add_argument(
+client-1   |   File "/usr/local/lib/python3.11/argparse.py", line 1455, in add_argument
+client-1   |     action = action_class(**kwargs)
+client-1   |              ^^^^^^^^^^^^^^^^^^^^^^
+client-1   | TypeError: _StoreTrueAction.__init__() got an unexpected keyword argument 'type'
+client-1 exited with code 1
+===================== 2024-04-18 02:49:51 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024/04/18 06:50:13 hraftd started successfully, listening on http://localhost:11000
+serverb-1  | 2024/04/18 06:50:18 hraftd started successfully, listening on http://localhost:11000
+serverc-1  | 2024/04/18 06:50:18 hraftd started successfully, listening on http://localhost:11000
+serverd-1  | 2024/04/18 06:50:18 hraftd started successfully, listening on http://localhost:11000
+servere-1  | 2024/04/18 06:50:18 hraftd started successfully, listening on http://localhost:11000
+client-1   |   0% 0/10000 [00:00<?, ?it/s]  0% 0/10000 [00:00<?, ?it/s]
+client-1   | Traceback (most recent call last):
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 198, in _new_conn
+client-1   |     sock = connection.create_connection(
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+client-1   |     raise err
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/util/connection.py", line 73, in create_connection
+client-1   |     sock.connect(sa)
+client-1   | ConnectionRefusedError: [Errno 111] Connection refused
+client-1   | 
+client-1   | The above exception was the direct cause of the following exception:
+client-1   | 
+client-1   | Traceback (most recent call last):
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+client-1   |     response = self._make_request(
+client-1   |                ^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 496, in _make_request
+client-1   |     conn.request(
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 400, in request
+client-1   |     self.endheaders()
+client-1   |   File "/usr/local/lib/python3.11/http/client.py", line 1298, in endheaders
+client-1   |     self._send_output(message_body, encode_chunked=encode_chunked)
+client-1   |   File "/usr/local/lib/python3.11/http/client.py", line 1058, in _send_output
+client-1   |     self.send(msg)
+client-1   |   File "/usr/local/lib/python3.11/http/client.py", line 996, in send
+client-1   |     self.connect()
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 238, in connect
+client-1   |     self.sock = self._new_conn()
+client-1   |                 ^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 213, in _new_conn
+client-1   |     raise NewConnectionError(
+client-1   | urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7330a88d4250>: Failed to establish a new connection: [Errno 111] Connection refused
+client-1   | 
+client-1   | The above exception was the direct cause of the following exception:
+client-1   | 
+client-1   | Traceback (most recent call last):
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+client-1   |     resp = conn.urlopen(
+client-1   |            ^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+client-1   |     retries = retries.increment(
+client-1   |               ^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/urllib3/util/retry.py", line 515, in increment
+client-1   |     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+client-1   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   | urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='servera', port=5000): Max retries exceeded with url: /key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7330a88d4250>: Failed to establish a new connection: [Errno 111] Connection refused'))
+client-1   | 
+client-1   | During handling of the above exception, another exception occurred:
+client-1   | 
+client-1   | Traceback (most recent call last):
+client-1   |   File "//client.py", line 79, in <module>
+client-1   |     main(args=args)
+client-1   |   File "//client.py", line 19, in main
+client-1   |     requests.post(f"{LEADER}/key", data=json.dumps({key: TEST[key]}))
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/api.py", line 115, in post
+client-1   |     return request("post", url, data=data, json=json, **kwargs)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/api.py", line 59, in request
+client-1   |     return session.request(method=method, url=url, **kwargs)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+client-1   |     resp = self.send(prep, **send_kwargs)
+client-1   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+client-1   |     r = adapter.send(request, **kwargs)
+client-1   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+client-1   |   File "/usr/local/lib/python3.11/site-packages/requests/adapters.py", line 519, in send
+client-1   |     raise ConnectionError(e, request=request)
+client-1   | requests.exceptions.ConnectionError: HTTPConnectionPool(host='servera', port=5000): Max retries exceeded with url: /key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7330a88d4250>: Failed to establish a new connection: [Errno 111] Connection refused'))
+client-1 exited with code 1
+===================== 2024-04-18 02:51:34 =====================
+Attaching to client-1, servera-1, serverb-1, serverc-1, serverd-1, servere-1
+servera-1  | 2024/04/18 06:51:56 hraftd started successfully, listening on http://servera:5000
+serverd-1  | 2024/04/18 06:52:01 hraftd started successfully, listening on http://serverd:5000
+servere-1  | 2024/04/18 06:52:01 hraftd started successfully, listening on http://servere:5000
+serverc-1  | 2024/04/18 06:52:01 hraftd started successfully, listening on http://serverc:5000
+serverb-1  | 2024/04/18 06:52:01 hraftd started successfully, listening on http://serverb:5000
+client-1   |   0% 0/10000 [00:00<?, ?it/s]  1% 140/10000 [00:00<00:07, 1394.62it/s]  3% 285/10000 [00:00<00:06, 1422.30it/s]  4% 431/10000 [00:00<00:06, 1435.02it/s]  6% 575/10000 [00:00<00:06, 1434.96it/s]  7% 719/10000 [00:00<00:06, 1432.97it/s]  9% 863/10000 [00:00<00:06, 1430.96it/s] 10% 1007/10000 [00:00<00:06, 1429.36it/s] 12% 1151/10000 [00:00<00:06, 1431.50it/s] 13% 1295/10000 [00:00<00:06, 1429.95it/s] 14% 1438/10000 [00:01<00:06, 1423.76it/s] 16% 1581/10000 [00:01<00:05, 1423.99it/s] 17% 1724/10000 [00:01<00:05, 1406.05it/s] 19% 1865/10000 [00:01<00:05, 1397.55it/s] 20% 2010/10000 [00:01<00:05, 1412.71it/s] 22% 2155/10000 [00:01<00:05, 1421.34it/s] 23% 2300/10000 [00:01<00:05, 1428.00it/s] 24% 2445/10000 [00:01<00:05, 1434.55it/s] 26% 2589/10000 [00:01<00:05, 1431.01it/s] 27% 2733/10000 [00:01<00:05, 1427.69it/s] 29% 2876/10000 [00:02<00:04, 1427.90it/s] 30% 3019/10000 [00:02<00:04, 1423.24it/s] 32% 3162/10000 [00:02<00:04, 1425.21it/s] 33% 3305/10000 [00:02<00:04, 1404.43it/s] 34% 3446/10000 [00:02<00:04, 1404.96it/s] 36% 3589/10000 [00:02<00:04, 1409.84it/s] 37% 3732/10000 [00:02<00:04, 1414.96it/s] 39% 3875/10000 [00:02<00:04, 1418.18it/s] 40% 4017/10000 [00:02<00:04, 1412.97it/s] 42% 4159/10000 [00:02<00:04, 1410.60it/s] 43% 4305/10000 [00:03<00:04, 1422.72it/s] 44% 4448/10000 [00:03<00:03, 1423.94it/s] 46% 4592/10000 [00:03<00:03, 1426.79it/s] 47% 4737/10000 [00:03<00:03, 1431.66it/s] 49% 4881/10000 [00:03<00:03, 1425.47it/s] 50% 5024/10000 [00:03<00:03, 1426.55it/s] 52% 5167/10000 [00:03<00:03, 1415.47it/s] 53% 5310/10000 [00:03<00:03, 1417.24it/s] 55% 5452/10000 [00:03<00:03, 1413.54it/s] 56% 5594/10000 [00:03<00:03, 1380.56it/s] 57% 5736/10000 [00:04<00:03, 1389.54it/s] 59% 5881/10000 [00:04<00:02, 1406.65it/s] 60% 6026/10000 [00:04<00:02, 1417.50it/s] 62% 6170/10000 [00:04<00:02, 1423.77it/s] 63% 6315/10000 [00:04<00:02, 1428.78it/s] 65% 6458/10000 [00:04<00:02, 1423.35it/s] 66% 6604/10000 [00:04<00:02, 1433.71it/s] 67% 6748/10000 [00:04<00:02, 1433.21it/s] 69% 6892/10000 [00:04<00:02, 1405.23it/s] 70% 7033/10000 [00:04<00:02, 1399.95it/s] 72% 7181/10000 [00:05<00:01, 1420.61it/s] 73% 7324/10000 [00:05<00:01, 1412.50it/s] 75% 7471/10000 [00:05<00:01, 1427.35it/s] 76% 7617/10000 [00:05<00:01, 1434.72it/s] 78% 7762/10000 [00:05<00:01, 1437.40it/s] 79% 7906/10000 [00:05<00:01, 1437.47it/s] 81% 8051/10000 [00:05<00:01, 1438.93it/s] 82% 8195/10000 [00:05<00:01, 1434.40it/s] 83% 8339/10000 [00:05<00:01, 1425.61it/s] 85% 8484/10000 [00:05<00:01, 1432.84it/s] 86% 8628/10000 [00:06<00:00, 1427.69it/s] 88% 8771/10000 [00:06<00:00, 1428.04it/s] 89% 8915/10000 [00:06<00:00, 1430.96it/s] 91% 9060/10000 [00:06<00:00, 1435.31it/s] 92% 9204/10000 [00:06<00:00, 1430.59it/s] 93% 9348/10000 [00:06<00:00, 1429.35it/s] 95% 9491/10000 [00:06<00:00, 1427.50it/s] 96% 9634/10000 [00:06<00:00, 1422.97it/s] 98% 9777/10000 [00:06<00:00, 1410.12it/s] 99% 9920/10000 [00:06<00:00, 1414.22it/s]100% 10000/10000 [00:07<00:00, 1421.78it/s]
+client-1   |   0% 0/10000 [00:00<?, ?it/s]  1% 142/10000 [00:00<00:06, 1413.59it/s]  3% 287/10000 [00:00<00:06, 1431.38it/s]  4% 431/10000 [00:00<00:06, 1435.26it/s]  6% 575/10000 [00:00<00:06, 1436.12it/s]  7% 719/10000 [00:00<00:06, 1437.32it/s]  9% 863/10000 [00:00<00:06, 1431.83it/s] 10% 1007/10000 [00:00<00:06, 1426.34it/s] 12% 1150/10000 [00:00<00:06, 1424.15it/s] 13% 1294/10000 [00:00<00:06, 1427.89it/s] 14% 1437/10000 [00:01<00:06, 1426.40it/s] 16% 1580/10000 [00:01<00:05, 1421.94it/s] 17% 1723/10000 [00:01<00:05, 1417.92it/s] 19% 1865/10000 [00:01<00:05, 1409.37it/s] 20% 2006/10000 [00:01<00:05, 1409.25it/s] 21% 2149/10000 [00:01<00:05, 1413.29it/s] 23% 2291/10000 [00:01<00:05, 1414.69it/s] 24% 2435/10000 [00:01<00:05, 1420.37it/s] 26% 2581/10000 [00:01<00:05, 1429.37it/s] 27% 2724/10000 [00:01<00:05, 1405.85it/s] 29% 2866/10000 [00:02<00:05, 1408.71it/s] 30% 3007/10000 [00:02<00:04, 1406.66it/s] 31% 3148/10000 [00:02<00:04, 1406.13it/s] 33% 3290/10000 [00:02<00:04, 1408.65it/s] 34% 3432/10000 [00:02<00:04, 1411.51it/s] 36% 3574/10000 [00:02<00:04, 1405.48it/s] 37% 3715/10000 [00:02<00:04, 1405.32it/s] 39% 3860/10000 [00:02<00:04, 1415.69it/s] 40% 4002/10000 [00:02<00:04, 1409.74it/s] 41% 4143/10000 [00:02<00:04, 1277.65it/s] 43% 4274/10000 [00:03<00:06, 920.71it/s]  44% 4382/10000 [00:03<00:07, 782.09it/s] 45% 4474/10000 [00:03<00:07, 707.16it/s] 46% 4555/10000 [00:03<00:08, 662.10it/s] 46% 4628/10000 [00:03<00:08, 628.88it/s] 47% 4695/10000 [00:03<00:08, 600.70it/s] 48% 4758/10000 [00:04<00:09, 580.99it/s] 48% 4818/10000 [00:04<00:09, 569.76it/s] 49% 4876/10000 [00:04<00:09, 564.35it/s] 49% 4933/10000 [00:04<00:09, 558.45it/s] 50% 4990/10000 [00:04<00:09, 550.38it/s] 50% 5046/10000 [00:04<00:09, 545.50it/s] 51% 5101/10000 [00:04<00:09, 542.83it/s] 52% 5156/10000 [00:04<00:08, 539.59it/s] 52% 5210/10000 [00:04<00:08, 534.02it/s] 53% 5264/10000 [00:05<00:08, 531.40it/s] 53% 5318/10000 [00:05<00:08, 524.82it/s] 54% 5372/10000 [00:05<00:08, 526.61it/s] 54% 5425/10000 [00:05<00:08, 526.22it/s] 55% 5479/10000 [00:05<00:08, 529.09it/s] 55% 5533/10000 [00:05<00:08, 529.49it/s] 56% 5586/10000 [00:05<00:08, 524.85it/s] 56% 5639/10000 [00:05<00:11, 372.51it/s] 57% 5683/10000 [00:06<00:11, 382.51it/s] 57% 5726/10000 [00:06<00:11, 369.28it/s] 58% 5771/10000 [00:06<00:10, 387.52it/s] 58% 5826/10000 [00:06<00:09, 428.90it/s] 59% 5875/10000 [00:06<00:09, 444.67it/s] 59% 5930/10000 [00:06<00:08, 473.01it/s] 60% 5983/10000 [00:06<00:08, 487.27it/s] 60% 6036/10000 [00:06<00:07, 499.43it/s] 61% 6090/10000 [00:06<00:07, 509.25it/s] 61% 6144/10000 [00:06<00:07, 517.39it/s] 62% 6198/10000 [00:07<00:07, 523.73it/s] 63% 6251/10000 [00:07<00:07, 524.93it/s] 63% 6304/10000 [00:07<00:07, 525.98it/s] 64% 6357/10000 [00:07<00:06, 526.69it/s] 64% 6411/10000 [00:07<00:06, 528.39it/s] 65% 6466/10000 [00:07<00:06, 532.59it/s] 65% 6520/10000 [00:07<00:06, 532.55it/s] 66% 6575/10000 [00:07<00:06, 535.45it/s] 66% 6630/10000 [00:07<00:06, 538.82it/s] 67% 6684/10000 [00:07<00:06, 538.43it/s] 67% 6738/10000 [00:08<00:06, 538.69it/s] 68% 6792/10000 [00:08<00:05, 537.65it/s] 68% 6847/10000 [00:08<00:05, 538.68it/s] 69% 6901/10000 [00:08<00:05, 539.03it/s] 70% 6955/10000 [00:08<00:05, 538.11it/s] 70% 7009/10000 [00:08<00:05, 537.91it/s] 71% 7063/10000 [00:08<00:05, 535.99it/s] 71% 7118/10000 [00:08<00:05, 537.14it/s] 72% 7173/10000 [00:08<00:05, 538.61it/s] 72% 7227/10000 [00:08<00:05, 538.20it/s] 73% 7281/10000 [00:09<00:05, 538.59it/s] 73% 7337/10000 [00:09<00:04, 543.09it/s] 74% 7392/10000 [00:09<00:04, 540.51it/s] 74% 7447/10000 [00:09<00:04, 542.81it/s] 75% 7502/10000 [00:09<00:04, 527.16it/s] 76% 7555/10000 [00:09<00:04, 525.38it/s] 76% 7608/10000 [00:09<00:04, 522.76it/s] 77% 7661/10000 [00:09<00:04, 521.48it/s] 77% 7714/10000 [00:09<00:04, 521.94it/s] 78% 7767/10000 [00:09<00:04, 523.39it/s] 78% 7820/10000 [00:10<00:04, 523.32it/s] 79% 7876/10000 [00:10<00:03, 533.01it/s] 79% 7932/10000 [00:10<00:03, 539.78it/s] 80% 7988/10000 [00:10<00:03, 542.67it/s] 80% 8043/10000 [00:10<00:03, 534.39it/s] 81% 8097/10000 [00:10<00:03, 535.65it/s] 82% 8153/10000 [00:10<00:03, 540.54it/s] 82% 8209/10000 [00:10<00:03, 545.34it/s] 83% 8265/10000 [00:10<00:03, 549.44it/s] 83% 8321/10000 [00:11<00:03, 551.12it/s] 84% 8377/10000 [00:11<00:02, 546.32it/s] 84% 8432/10000 [00:11<00:02, 545.29it/s] 85% 8487/10000 [00:11<00:02, 542.36it/s] 85% 8542/10000 [00:11<00:02, 540.32it/s] 86% 8597/10000 [00:11<00:02, 541.71it/s] 87% 8652/10000 [00:11<00:02, 541.11it/s] 87% 8707/10000 [00:11<00:02, 541.30it/s] 88% 8762/10000 [00:11<00:02, 541.84it/s] 88% 8817/10000 [00:11<00:02, 540.88it/s] 89% 8872/10000 [00:12<00:02, 539.43it/s] 89% 8926/10000 [00:12<00:01, 539.35it/s] 90% 8981/10000 [00:12<00:01, 539.67it/s] 90% 9037/10000 [00:12<00:01, 544.10it/s] 91% 9093/10000 [00:12<00:01, 546.95it/s] 91% 9148/10000 [00:12<00:01, 547.37it/s] 92% 9203/10000 [00:12<00:01, 538.93it/s] 93% 9257/10000 [00:12<00:01, 538.64it/s] 93% 9312/10000 [00:12<00:01, 540.48it/s] 94% 9367/10000 [00:12<00:01, 540.74it/s] 94% 9422/10000 [00:13<00:01, 530.92it/s] 95% 9476/10000 [00:13<00:00, 530.61it/s] 95% 9530/10000 [00:13<00:00, 526.19it/s] 96% 9583/10000 [00:13<00:00, 497.60it/s] 96% 9637/10000 [00:13<00:00, 507.35it/s] 97% 9692/10000 [00:13<00:00, 517.87it/s] 97% 9747/10000 [00:13<00:00, 525.76it/s] 98% 9801/10000 [00:13<00:00, 529.55it/s] 99% 9855/10000 [00:13<00:00, 530.22it/s] 99% 9909/10000 [00:13<00:00, 532.16it/s]100% 9963/10000 [00:14<00:00, 531.77it/s]100% 10000/10000 [00:14<00:00, 706.47it/s]
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 10.894941634241194%
+client-1   | RESULT | MAX MEM UTIL: 3.2099609375 kiB
+client-1   | RESULT | END LOG SIZE: 73 B
+client-1 exited with code 0

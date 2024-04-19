@@ -35,7 +35,7 @@ def main(args: argparse.Namespace):
     print(f"RESULT | MESSAGES SENT/REQUESTED: {args.data}")
     print(f"RESULT | AVG COMMIT TIME: {time}")
     print(f"RESULT | AVG CPU UTIL: {avg_cpu}%")
-    print(f"RESULT | MAX MEM UTIL: {ps_mem / (2**10)} kiB")
+    print(f"RESULT | MAX MEM UTIL: {ps_mem / (2**10)} KiB")
     print(f"RESULT | END LOG SIZE: {log_size} B")
 
 

@@ -1,0 +1,153 @@
+version: '3.7'
+services:
+  # PD Nodes
+  pd1:
+    image: pingcap/pd:latest
+    container_name: pd1
+    ports:
+      - "2379"
+      - "2380"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/pd1:/data
+    command:
+      - --name=pd1
+      - --data-dir=/data/pd1
+      - --client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://pd1:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-peer-urls=http://pd1:2380
+      - --initial-cluster=pd1=http://pd1:2380,pd2=http://pd2:2380,pd3=http://pd3:2380
+    restart: on-failure
+
+  pd2:
+    image: pingcap/pd:latest
+    container_name: pd2
+    ports:
+      - "2379"
+      - "2380"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/pd2:/data
+    command:
+      - --name=pd2
+      - --data-dir=/data/pd2
+      - --client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://pd2:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-peer-urls=http://pd2:2380
+      - --initial-cluster=pd1=http://pd1:2380,pd2=http://pd2:2380,pd3=http://pd3:2380
+    restart: on-failure
+
+  pd3:
+    image: pingcap/pd:latest
+    container_name: pd3
+    ports:
+      - "2379"
+      - "2380"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/pd3:/data
+    command:
+      - --name=pd3
+      - --data-dir=/data/pd3
+      - --client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://pd3:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-peer-urls=http://pd3:2380
+      - --initial-cluster=pd1=http://pd1:2380,pd2=http://pd2:2380,pd3=http://pd3:2380
+    restart: on-failure
+
+  # TiKV Nodes
+  tikv1:
+    image: pingcap/tikv:latest
+    container_name: tikv1
+    ports:
+      - "20160"  # Docker will assign an available port on the host to port 20160 of the container
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/tikv1:/data
+      - ./tikv.toml:/etc/tikv/tikv.toml  # Mounting the custom config file
+    command:
+      - --addr=0.0.0.0:20160
+      - --advertise-addr=tikv1:20160
+      - --data-dir=/data/tikv1
+      - --pd=pd1:2379,pd2:2379,pd3:2379
+      - --config=/etc/tikv/tikv.toml
+    depends_on:
+      - pd1
+      - pd2
+      - pd3
+    restart: on-failure
+
+  tikv2:
+    image: pingcap/tikv:latest
+    container_name: tikv2
+    ports:
+      - "20160"  # Docker will assign an available port on the host to port 20160 of the container
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/tikv2:/data
+      - ./tikv.toml:/etc/tikv/tikv.toml  # Mounting the custom config file
+    command:
+      - --addr=0.0.0.0:20160
+      - --advertise-addr=tikv2:20160
+      - --data-dir=/data/tikv2
+      - --pd=pd1:2379,pd2:2379,pd3:2379
+      - --config=/etc/tikv/tikv.toml
+    depends_on:
+      - pd1
+      - pd2
+      - pd3
+    restart: on-failure
+
+
+  # TiKV Nodes
+  tikv3:
+    image: pingcap/tikv:latest
+    container_name: tikv3
+    ports:
+      - "20160"  # Docker will assign an available port on the host to port 20160 of the container
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/tikv3:/data
+      - ./tikv.toml:/etc/tikv/tikv.toml  # Mounting the custom config file
+    command:
+      - --addr=0.0.0.0:20160
+      - --advertise-addr=tikv3:20160
+      - --data-dir=/data/tikv3
+      - --pd=pd1:2379,pd2:2379,pd3:2379
+      - --config=/etc/tikv/tikv.toml
+    depends_on:
+      - pd1
+      - pd2
+      - pd3
+    restart: on-failure
+
+  tidb:
+    image: pingcap/tidb:latest
+    ports:
+      - "4000:4000"
+    depends_on:
+      - pd1
+      - pd2
+      - pd3
+      - tikv1
+      - tikv2
+      - tikv3
+    command:
+      - --store=tikv
+      - --path=pd1:2379,pd2:2379,pd3:2379  # Connect to the PD cluster
+  # Python client
+  python_client:
+    container_name: python_client
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    depends_on:
+      - pd1
+      - pd2
+      - pd3
+      - tikv1
+    restart: on-failure
+    

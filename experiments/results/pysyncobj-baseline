@@ -1,6 +1,0 @@
-===================== 2024-04-19 14:30:34 =====================
-client-1   | RESULT | MESSAGES SENT/REQUESTED: 1000
-client-1   | RESULT | AVG COMMIT TIME: 0.09666369788939483
-client-1   | RESULT | AVG CPU UTIL: 5.8%
-client-1   | RESULT | MAX MEM UTIL: 34908.0 KiB
-client-1   | RESULT | END LOG SIZE: 177624 B

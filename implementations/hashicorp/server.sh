@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
+if [[ $2 == "skeleton" ]]; then
+    echo $2
+    bin/skeleton -id node0 -haddr $SERVER0:5000 nodes/
+    exit 0
+fi
+
 if [[ $1 == "a" ]]; then
-    bin/hraftd -id node$1 -inmem -haddr $SERVER0:5000 -raddr $SERVER0:6000 nodes/
+    bin/hraftd -id node$1 -inmem -haddr $SERVER0:5000 -raddr $SERVER0:6000 nodes/ 
 else
     bin/hraftd -id node$1 -inmem -haddr $SERVER0:5000 -raddr $SERVER0:6000 -join $LEADER nodes/
 fi

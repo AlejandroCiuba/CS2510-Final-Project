@@ -7,7 +7,7 @@ services:
     tty: true
     environment:
       SERVER0: servera
-    command: bash -c "sleep 1; bash ${SERVER} a"
+    command: bash -c "sleep 1; bash ${SERVER} a ${SKELETON}"
 
   serverb:
     build: ${SERVER_DOCKER}
@@ -59,6 +59,6 @@ services:
     tty: true
     environment:
       LEADER: servera:5000
-    command: bash -c "sleep 10; bash ${CLIENT}"
+    command: bash -c "sleep 10; bash ${CLIENT} ${SKELETON}"
     depends_on: 
       - servera

@@ -8,6 +8,7 @@ TIMES=$3
 for (( i=1; i <= $TIMES; i++ )); do
     echo "RUN $i"
     sudo bash run.sh $EXP $API $SKELETON
+    ping google.com -c 3
 done
 
 echo "WRITING $TIMES RUNS TO A CSV"

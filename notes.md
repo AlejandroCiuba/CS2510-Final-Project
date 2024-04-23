@@ -1,1 +1,3 @@
-`pipreqs .` makes `requests` into `Requests`, change that!
+- `pipreqs .` makes `requests` into `Requests`, change that!
+- The `requirements.txt` file in the main folder is for the entire project
+- Follow the instructions at [The EdgeShark GitHub](https://github.com/siemens/edgeshark) to set up packet monitoring through WireShark

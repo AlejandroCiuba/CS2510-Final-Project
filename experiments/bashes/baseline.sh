@@ -24,7 +24,7 @@ elif [[ "$API" == "hashicorp" ]]; then
 elif [[ "$API" == "tikv" ]]; then
 
     docker compose -f $COMPOSE build --no-cache --quiet
-    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull --remove-orphans #| grep -P "RESULT"
+    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull --remove-orphans | grep -P "RESULT"
 
 else
 

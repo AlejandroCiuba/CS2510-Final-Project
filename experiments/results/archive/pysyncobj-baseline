@@ -1,0 +1,36 @@
+===================== 2024-04-23 15:49:23 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | AVG COMMIT TIME: 0.09908866637399978
+client-1   | RESULT | AVG CPU UTIL: 2.0%
+client-1   | RESULT | MAX MEM UTIL: 40872.0 KiB
+client-1   | RESULT | END LOG SIZE: 209904 B
+===================== 2024-04-23 16:06:57 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | AVG COMMIT TIME: 0.09905290158090174
+client-1   | RESULT | AVG CPU UTIL: 2.0%
+client-1   | RESULT | MAX MEM UTIL: 40976.0 KiB
+client-1   | RESULT | END LOG SIZE: 210912 B
+===================== 2024-04-23 16:24:31 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | AVG COMMIT TIME: 0.09908066881560117
+client-1   | RESULT | AVG CPU UTIL: 2.0%
+client-1   | RESULT | MAX MEM UTIL: 40996.0 KiB
+client-1   | RESULT | END LOG SIZE: 210408 B
+===================== 2024-04-23 17:15:32 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0.09906786975099022
+client-1   | RESULT | AVG CPU UTIL: 0.013280815973489764%
+client-1   | RESULT | MAX MEM UTIL: 36464.0 KiB
+client-1   | RESULT | END LOG SIZE: 353048 B
+===================== 2024-04-23 17:22:51 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0.09907593612050096
+client-1   | RESULT | AVG CPU UTIL: 0.018191748526175843%
+client-1   | RESULT | MAX MEM UTIL: 36312.0 KiB
+client-1   | RESULT | END LOG SIZE: 353144 B
+===================== 2024-04-23 17:32:08 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0.0990546727885212
+client-1   | RESULT | AVG CPU UTIL: 1.851080877376652%
+client-1   | RESULT | MAX MEM UTIL: 36204.0 KiB
+client-1   | RESULT | END LOG SIZE: 352952 B

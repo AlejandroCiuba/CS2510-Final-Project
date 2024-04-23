@@ -54,7 +54,7 @@ def main(args: argparse.Namespace):
     print(df.head())
     print(df.info())
 
-    df.to_csv(f"{SAVE}/{args.implementation}.{datetime.datetime.now().isoformat(timespec='minutes')}.csv", index=False)
+    df.to_csv(f"{SAVE}/{args.implementation}.{datetime.datetime.now().isoformat(timespec='minutes').replace(":", "-")}.csv", index=False)
 
 
 def add_args(parser: argparse.ArgumentParser):

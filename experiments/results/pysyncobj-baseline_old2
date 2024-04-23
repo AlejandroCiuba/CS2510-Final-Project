@@ -1,0 +1,13 @@
+===================== 2024-04-19 14:30:34 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 1000
+client-1   | RESULT | AVG COMMIT TIME: 0.09666369788939483
+client-1   | RESULT | AVG CPU UTIL: 5.8%
+client-1   | RESULT | MAX MEM UTIL: 34908.0 KiB
+client-1   | RESULT | END LOG SIZE: 177624 B
+===================== 2024-04-22 02:51:25 =====================
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | AVG COMMIT TIME: 5.13614992814837e-07
+client-1   | RESULT | AVG CPU UTIL: 24.2%
+client-1   | RESULT | MAX MEM UTIL: 43244.0 KiB
+client-1   | RESULT | END LOG SIZE: 3312480 B

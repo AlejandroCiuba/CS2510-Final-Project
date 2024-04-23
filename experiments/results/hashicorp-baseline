@@ -1,50 +1,38 @@
-===================== 2024-04-19 14:16:21 =====================
+===================== 2024-04-22 04:00:57 =====================
 client-1   | RESULTS ARE FROM A SKELETON
 client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
 client-1   | RESULT | AVG COMMIT TIME: 0
-client-1   | RESULT | AVG CPU UTIL: 11.626762872987904%
-client-1   | RESULT | MAX MEM UTIL: 3.2451171875 kiB
+client-1   | RESULT | AVG CPU UTIL: 10.982286634462092%
+client-1   | RESULT | MAX MEM UTIL: 3.158203125 KiB
 client-1   | RESULT | END LOG SIZE: 73 B
-===================== 2024-04-19 14:23:00 =====================
+===================== 2024-04-22 04:02:10 =====================
+client-1   | RESULTS ARE FROM A SKELETON
 client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
-client-1   | RESULT | AVG COMMIT TIME: 0.00029496889939999957
-client-1   | RESULT | AVG CPU UTIL: 19.152119700703647%
-client-1   | RESULT | MAX MEM UTIL: 6.4892578125 kiB
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 11.136738056013714%
+client-1   | RESULT | MAX MEM UTIL: 3.1953125 KiB
+client-1   | RESULT | END LOG SIZE: 73 B
+===================== 2024-04-22 04:08:53 =====================
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | AVG COMMIT TIME: 0.00011396752370000014
+client-1   | RESULT | AVG CPU UTIL: 19.360902255640156%
+client-1   | RESULT | MAX MEM UTIL: 6.837890625 KiB
 client-1   | RESULT | END LOG SIZE: 121 B
-===================== 2024-04-20 02:15:53 =====================
+===================== 2024-04-22 04:10:08 =====================
 client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
-client-1   | RESULT | AVG COMMIT TIME: 0.00011203967700000003
-client-1   | RESULT | AVG CPU UTIL: 19.196428571428214%
-client-1   | RESULT | MAX MEM UTIL: 6.9697265625 KiB
+client-1   | RESULT | AVG COMMIT TIME: 0.00011366247549999995
+client-1   | RESULT | AVG CPU UTIL: 19.496062992125985%
+client-1   | RESULT | MAX MEM UTIL: 7.115234375 KiB
 client-1   | RESULT | END LOG SIZE: 121 B
-===================== 2024-04-20 02:17:58 =====================
+===================== 2024-04-22 04:17:02 =====================
 client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
-client-1   | RESULT | AVG COMMIT TIME: 0.00011204081690000052
-client-1   | RESULT | AVG CPU UTIL: 19.41403734707164%
-client-1   | RESULT | MAX MEM UTIL: 7.0634765625 KiB
+client-1   | RESULT | AVG COMMIT TIME: 0.00011894452750000046
+client-1   | RESULT | AVG CPU UTIL: 20.11852776045062%
+client-1   | RESULT | MAX MEM UTIL: 6.8623046875 KiB
 client-1   | RESULT | END LOG SIZE: 121 B
-===================== 2024-04-20 02:25:29 =====================
+===================== 2024-04-22 04:18:17 =====================
 client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
-client-1   | RESULT | AVG COMMIT TIME: 0.00011173500589999989
-client-1   | RESULT | AVG CPU UTIL: 19.203821656054515%
-client-1   | RESULT | MAX MEM UTIL: 7.021484375 KiB
-client-1   | RESULT | END LOG SIZE: 121 B
-===================== 2024-04-20 02:50:45 =====================
-client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
-client-1   | RESULT | AVG COMMIT TIME: 0.00011163404010000011
-client-1   | RESULT | AVG CPU UTIL: 19.28934010152035%
-client-1   | RESULT | MAX MEM UTIL: 7.0703125 KiB
-client-1   | RESULT | END LOG SIZE: 121 B
-===================== 2024-04-20 02:53:15 =====================
-client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
-client-1   | RESULT | AVG COMMIT TIME: 0.00011331323280000012
-client-1   | RESULT | AVG CPU UTIL: 19.550063371353083%
-client-1   | RESULT | MAX MEM UTIL: 6.8837890625 KiB
-client-1   | RESULT | END LOG SIZE: 121 B
-===================== 2024-04-20 03:15:31 =====================
-===================== 2024-04-20 03:47:07 =====================
-client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
-client-1   | RESULT | AVG COMMIT TIME: 0.00012028729210000008
-client-1   | RESULT | AVG CPU UTIL: 20.65801961404581%
-client-1   | RESULT | MAX MEM UTIL: 6.9921875 KiB
+client-1   | RESULT | AVG COMMIT TIME: 0.00012085146809999976
+client-1   | RESULT | AVG CPU UTIL: 20.092165898615715%
+client-1   | RESULT | MAX MEM UTIL: 6.8271484375 KiB
 client-1   | RESULT | END LOG SIZE: 121 B

@@ -46,7 +46,7 @@ def main(args: argparse.Namespace):
     ps_mem = results["ps_mem"]
     log_size = results["log_size"]
 
-    if "test" in metadata.keys():
+    if args.skeleton:
         print("RESULTS ARE FROM A SKELETON")
 
     print(f"RESULT | MESSAGES SENT/REQUESTED: {args.data}")
@@ -72,6 +72,13 @@ def add_args(parser: argparse.ArgumentParser):
         nargs="+",
         type=http,
         help="Server addresses with ports.\n \n",
+    )
+
+    parser.add_argument(
+        "-k",
+        "--skeleton",
+        action="store_true",
+        help="Add if it is a skeleton run. Spooky ooO!\n \n",
     )
 
 

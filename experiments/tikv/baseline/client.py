@@ -9,9 +9,6 @@ def main(args: argparse.Namespace):
 
     TEST = {f"{i:d}": f"{i:d}" for i in range(args.data)}
 
-    # Time sleep
-    # time.sleep(30)
-
     # Connect to the TiKV cluster
     client = RawClient.connect(["127.0.0.1:2379"])
 

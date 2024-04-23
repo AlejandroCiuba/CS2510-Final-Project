@@ -1,0 +1,7 @@
+# syntax=docker/dockerfile:1
+
+# Get ubuntu and update it
+FROM ubuntu:latest
+
+WORKDIR /server
+COPY tikv-server .

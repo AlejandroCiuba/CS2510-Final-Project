@@ -25,7 +25,7 @@ services:
       LOCAL: ${SKELETON}
       SELF: 20160
       BROKER: 2370
-    command: bash -c "sleep 5; bash ${SERVER}"
+    command: bash -c "sleep 2; bash ${SERVER}"
     depends_on:
       - broker
 

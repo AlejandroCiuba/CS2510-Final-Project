@@ -1,0 +1,96 @@
+version: '3.1'
+services:
+
+  broker:
+    build: ${BROKER_DOCKER}
+    hostname: brokera
+    tty: true
+    ports:
+      - "2370:2370"
+      - "2380:2380"
+    environment:
+      LOCAL: ${SKELETON}
+      NAME: broker
+      BROKER: 2370
+      PEER: 2380
+    command: bash -c "bash ${BROKER}"
+
+  servera:
+    build: ${SERVER_DOCKER}
+    hostname: servera
+    tty: true
+    ports:
+      - "20160:20160"
+    environment:
+      LOCAL: ${SKELETON}
+      SELF: 20160
+      BROKER: 2370
+    command: bash -c "sleep 5; bash ${SERVER}"
+    depends_on:
+      - broker
+
+  serverb:
+    build: ${SERVER_DOCKER}
+    hostname: serverb
+    tty: true
+    ports:
+      - "20162:20162"
+    environment:
+      LOCAL: ${SKELETON}
+      SELF: 20162
+      BROKER: 2370
+    command: bash -c "sleep 5; bash ${SERVER}"
+    depends_on:
+      - broker
+
+  serverc:
+    build: ${SERVER_DOCKER}
+    hostname: serverb
+    tty: true
+    ports:
+      - "20164:20164"
+    environment:
+      LOCAL: ${SKELETON}
+      SELF: 20164
+      BROKER: 2370
+    command: bash -c "sleep 5; bash ${SERVER}"
+    depends_on:
+      - broker
+
+  serverd:
+    build: ${SERVER_DOCKER}
+    hostname: serverb
+    tty: true
+    ports:
+      - "20166:20166"
+    environment:
+      LOCAL: ${SKELETON}
+      SELF: 20166
+      BROKER: 2370
+    command: bash -c "sleep 5; bash ${SERVER}"
+    depends_on:
+      - broker
+
+  servere:
+    build: ${SERVER_DOCKER}
+    hostname: serverb
+    tty: true
+    ports:
+      - "20168:20168"
+    environment:
+      LOCAL: ${SKELETON}
+      SELF: 20168
+      BROKER: 2370
+    command: bash -c "sleep 5; bash ${SERVER}"
+    depends_on:
+      - broker
+
+  client:
+    build: ${CLIENT_DOCKER}
+    hostname: client
+    tty: true
+    environment:
+      LOCAL: ${SKELETON}
+    command: bash -c "sleep 10; bash ${CLIENT}"
+    depends_on:
+      - servera

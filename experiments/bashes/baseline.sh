@@ -14,17 +14,17 @@ echo "===================== $CURR_DATE ====================="
 if [[ "$API" == "pysyncobj" ]]; then
 
     docker compose -f $COMPOSE build --no-cache --quiet
-    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull | grep -P "RESULT"
+    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull --remove-orphans | grep -P "RESULT"
 
 elif [[ "$API" == "hashicorp" ]]; then
 
     docker compose -f $COMPOSE build --no-cache --quiet
-    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull | grep -P "RESULT"
+    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull --remove-orphans | grep -P "RESULT"
 
 elif [[ "$API" == "tikv" ]]; then
 
     docker compose -f $COMPOSE build --no-cache --quiet
-    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull #| grep -P "RESULT"
+    docker compose -f $COMPOSE up --abort-on-container-exit --quiet-pull --remove-orphans #| grep -P "RESULT"
 
 else
 

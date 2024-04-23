@@ -7,6 +7,7 @@ FROM python:3.11
 COPY *.py /
 COPY *.sh /
 COPY requirements.txt /
+COPY timer/ timer/
 
 # Install requirements
 RUN python3 -m pip install --upgrade pip

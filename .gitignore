@@ -161,4 +161,4 @@ cython_debug/
 # Ignore hashicorp bin
 /implementations/hashicorp/bin
 
-implementations/tikv/*-server
+implementations/tikv/*/*-server

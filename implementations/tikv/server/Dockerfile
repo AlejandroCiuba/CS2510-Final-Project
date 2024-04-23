@@ -4,4 +4,5 @@
 FROM ubuntu:latest
 
 WORKDIR /server
-COPY pd-server .
+COPY *.sh .
+COPY tikv-server .

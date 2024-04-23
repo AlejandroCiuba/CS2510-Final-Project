@@ -1,0 +1,2 @@
+- 27## = Client URLS
+- 28## = Peer URLS for the brokers

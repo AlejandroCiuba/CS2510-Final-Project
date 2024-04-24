@@ -15,7 +15,7 @@ echo "WRITING $TIMES RUNS TO A CSV"
 if [[ -z "$4" ]]; then
     python3 parser.py -f $API-$EXP -i $API
 elif [[ ! -z "$SKELETON" ]]; then
-    python3 parser.py -f $API-$EXP.skeleton -i "$API.skeleton"
+    python3 parser.py -f "$API-$EXP.skeleton" -i "$API.skeleton"
 fi
 
 echo "RUNS COMPLETE"

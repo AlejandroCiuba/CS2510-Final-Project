@@ -8,8 +8,7 @@ import time
 import requests
 
 # Global variables, used for monitoring requests
-collect_metrics = False;
-prometheus_url = '' # TODO: get the ip of the Promethous container
+prometheus_url = 'http://prometheus:9090'
 
 # Make a request to Prometheus for any monitoring query
 def fetch_prometheus_query(query):
@@ -26,8 +25,7 @@ def fetch_prometheus_query(query):
 def main(args: argparse.Namespace):
 
     TEST = {f"{i:d}": f"{i:d}" for i in range(args.data)}
-    TIMERVAULT = TimerVault("POST")
-    metrics_dict = {'cpu': [], 'mem': []}
+    TIMERVAULT = TimerVault("TiKV")
 
     # Connect to the TiKV cluster
     client = RawClient.connect(args.servers)
@@ -37,10 +35,11 @@ def main(args: argparse.Namespace):
         with Timer("put", TIMERVAULT):
             client.put(b"%s" % key.encode(), b"%s" % TEST[key].encode())
     
-    # Specify parameters for utilization monitoring
-    times = f'{1}m' # TODO: Replace this with a value corresponding to the length of time the send test ran for
-    cpu_usage_query = f'avg_over_time(process_cpu_seconds_total[{times}])'
-    memory_usage_query = f'avg_over_time(node_memory_MemTotal[{times}])'
+    # Create queries for TiKV metrics 
+    times = TIMERVAULT.to_dict()['recordings']['total']
+    time_range = sum(times)
+    cpu_usage_query = f'avg_over_time(process_cpu_seconds_total[{time_range}s])'
+    memory_usage_query = f'avg_over_time(node_memory_MemTotal[{time_range}s])'
 
     # Fetch CPU and memory metrics
     avg_cpu = fetch_prometheus_query(cpu_usage_query)
@@ -50,7 +49,6 @@ def main(args: argparse.Namespace):
         assert TEST[key] == f"{client.get(b'%s' % key.encode()).decode()}"
         print(f"{client.get(b'%s' % key.encode()).decode()}")
 
-    times = TIMERVAULT.to_dict()['recordings']['total']
 
     print(f"RESULT | MESSAGES SENT/REQUESTED: {args.data}")
     print(f"RESULT | AVG COMMIT TIME: {sum(times) / len(times)}")

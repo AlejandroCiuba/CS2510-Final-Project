@@ -1,0 +1,8 @@
+global:
+  # TODO: Match whatever monitering interval is being used for other implementations
+  scrape_interval: 15s   
+
+scrape_configs:
+  - job_name: 'tikv'
+    static_configs:
+      - targets: ['servera:20160', 'serverb:20162', 'serverc:20164', 'serverd:20166', 'servere:20168']

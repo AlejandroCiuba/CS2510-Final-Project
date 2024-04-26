@@ -1,14 +1,70 @@
-===================== 2024-04-22 04:12:36 =====================
+===================== 2024-04-23 19:42:23 =====================
 client-1   | RESULTS ARE FROM A SKELETON
-client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
 client-1   | RESULT | AVG COMMIT TIME: 0
-client-1   | RESULT | AVG CPU UTIL: 10.916886543535725%
-client-1   | RESULT | MAX MEM UTIL: 3.1884765625 KiB
+client-1   | RESULT | AVG CPU UTIL: 5.475040257649724%
+client-1   | RESULT | MAX MEM UTIL: 3.1171875 KiB
 client-1   | RESULT | END LOG SIZE: 73 B
-===================== 2024-04-22 04:13:50 =====================
+===================== 2024-04-23 19:44:07 =====================
 client-1   | RESULTS ARE FROM A SKELETON
-client-1   | RESULT | MESSAGES SENT/REQUESTED: 10000
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
 client-1   | RESULT | AVG COMMIT TIME: 0
-client-1   | RESULT | AVG CPU UTIL: 11.015831134564749%
-client-1   | RESULT | MAX MEM UTIL: 3.1767578125 KiB
+client-1   | RESULT | AVG CPU UTIL: 5.267358339984527%
+client-1   | RESULT | MAX MEM UTIL: 3.09375 KiB
+client-1   | RESULT | END LOG SIZE: 73 B
+===================== 2024-04-23 19:45:14 =====================
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 5.30903328050756%
+client-1   | RESULT | MAX MEM UTIL: 3.1142578125 KiB
+client-1   | RESULT | END LOG SIZE: 73 B
+===================== 2024-04-23 19:46:18 =====================
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 5.401111993645689%
+client-1   | RESULT | MAX MEM UTIL: 3.080078125 KiB
+client-1   | RESULT | END LOG SIZE: 73 B
+===================== 2024-04-23 19:47:19 =====================
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 5.506072874492954%
+client-1   | RESULT | MAX MEM UTIL: 3.1494140625 KiB
+client-1   | RESULT | END LOG SIZE: 73 B
+===================== 2024-04-23 19:48:32 =====================
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 5.438311688311817%
+client-1   | RESULT | MAX MEM UTIL: 3.0625 KiB
+client-1   | RESULT | END LOG SIZE: 73 B
+===================== 2024-04-23 19:49:30 =====================
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 5.528455284553173%
+client-1   | RESULT | MAX MEM UTIL: 3.0537109375 KiB
+client-1   | RESULT | END LOG SIZE: 73 B
+===================== 2024-04-23 19:51:22 =====================
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 5.368589743589932%
+client-1   | RESULT | MAX MEM UTIL: 3.0625 KiB
+client-1   | RESULT | END LOG SIZE: 73 B
+===================== 2024-04-23 19:52:18 =====================
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 5.461847389557914%
+client-1   | RESULT | MAX MEM UTIL: 3.0166015625 KiB
+client-1   | RESULT | END LOG SIZE: 73 B
+===================== 2024-04-23 19:53:17 =====================
+client-1   | RESULTS ARE FROM A SKELETON
+client-1   | RESULT | MESSAGES SENT/REQUESTED: 2000
+client-1   | RESULT | AVG COMMIT TIME: 0
+client-1   | RESULT | AVG CPU UTIL: 5.451586655817351%
+client-1   | RESULT | MAX MEM UTIL: 3.0 KiB
 client-1   | RESULT | END LOG SIZE: 73 B

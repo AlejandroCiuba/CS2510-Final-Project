@@ -10,6 +10,8 @@ import argparse
 import json
 import os
 import psutil
+import resource
+import time
 
 
 app: Flask = Flask(__name__)
@@ -21,6 +23,12 @@ PROC: psutil.Process = psutil.Process(os.getpid())
 
 DB: ReplDict = ReplDict()
 SYNCOBJ: SyncObj
+
+RBEFORE: float = 0
+RAFTER: float = 0
+
+TBEFORE: float = 0
+TAFTER: float = 0
 
 
 @app.get("/user/<key>")
@@ -53,10 +61,14 @@ def node_ready():
 @app.get("/node/metadata")
 def node_metadata():
 
+    global RAFTER, TAFTER
+    RAFTER = resource.getrusage(resource.RUSAGE_SELF).ru_utime + resource.getrusage(resource.RUSAGE_SELF).ru_stime
+    TAFTER = time.time()
+
     asizeof.asizeof(SYNCOBJ._SyncObj__raftLog)
 
     metadata = {"vault": TIMERVAULT.to_dict(),
-                "avg_cpu": PROC.cpu_percent(),
+                "avg_cpu": (RAFTER - RBEFORE) / (TAFTER - TBEFORE) * 100,
                 "ps_mem": PROC.memory_info().rss,  # B
                 "log_size": asizeof.asized(SYNCOBJ._SyncObj__raftLog).size, }  # B
 
@@ -111,7 +123,8 @@ def add_args(parser: argparse.ArgumentParser):
 
 if __name__ == "__main__":
 
-    PROC.cpu_percent()
+    RBEFORE = resource.getrusage(resource.RUSAGE_SELF).ru_utime + resource.getrusage(resource.RUSAGE_SELF).ru_stime
+    TBEFORE = time.time()
 
     parser = argparse.ArgumentParser(
         prog="server.py",

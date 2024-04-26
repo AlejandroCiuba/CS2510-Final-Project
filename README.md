@@ -6,7 +6,7 @@
 
 ![Outline of our project's experiment pipeline](cs2510-final.png "Experiment Pipeline")
 
-This is the repository containing the code for their Spring 2024 CS2510 Final Project by Alejandro Ciuba and Winston Osei-Bonsu.
+This is the repository containing the code for their Spring 2024 CS2510 Final Project by Alejandro Ciuba and Winston Osei-Bonsu. Each implementation has its own folder for all server components (bash script, Dockerfile etc.) in `implementations/`. All implementations also have their own simulation and Docker-Compose set-up under their `<name>/baseline/` folder in `experiments/`. Lastly, please make sure you are online as we pull from [this repository](https://github.com/AlejandroCiuba/hraftd) when running HashiCorp's implementation inside the server's Dockerfile.
 
 ### Repository Structure:
 - `.CS2510_Project_Proposal.pdf`: Original Project Proposal

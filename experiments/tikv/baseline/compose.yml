@@ -94,18 +94,33 @@ services:
     command: bash -c "sleep 10; bash ${CLIENT}"
     depends_on:
       - servera
+      # - prometheus
 
-  prometheus:
-    image: prom/prometheus:v2.33.1
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-    depends_on:
-      - servera
-      - serverb
-      - serverc
-      - serverd
-      - servere
+  # prometheus:
+  #   image: prom/prometheus:v2.33.1
+  #   hostname: prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #   command:
+  #     - '--config.file=/etc/prometheus/prometheus.yml'
+  #   depends_on:
+  #     - servera
+  #     - serverb
+  #     - serverc
+  #     - serverd
+  #     - servere
+
+  # node_exporter:
+  #     image: quay.io/prometheus/node-exporter:latest
+  #     container_name: node_exporter
+  #     command:
+  #       - '--path.rootfs=/host'
+  #     network_mode: host
+  #     pid: host
+  #     restart: unless-stopped
+  #     volumes:
+  #       - '/:/host:ro,rslave'
+  #     depends_on:
+  #       - prometheus

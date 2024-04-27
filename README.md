@@ -9,7 +9,8 @@
 This is the repository containing the code for their Spring 2024 CS2510 Final Project by Alejandro Ciuba and Winston Osei-Bonsu. Each implementation has its own folder for all server components (bash script, Dockerfile etc.) in `implementations/`. All implementations also have their own simulation and Docker-Compose set-up under their `<name>/baseline/` folder in `experiments/`. **Please make sure you are online when running simulations** as we pull from [this repository](https://github.com/AlejandroCiuba/hraftd) when running HashiCorp's implementation inside the server's Dockerfile. If you want to see the results we used for the paper, check `experiments/results_csv/`. Packet data from WireShark is not provided by default for security reasons.
 
 ### Repository Structure:
-- `.CS2510_Project_Proposal.pdf`: Original Project Proposal
+- `CS2510_Final_Paper-Ciuba_Osei-Bonsu.pdf`: The final paper.
+- `CS2510_Project_Proposal-Ciuba_Osei-Bonsu.pdf`: Original Project Proposal.
 - `notes.md`: Most subdirectories will have this too; any notes we track.
 - `README.md`: This...
 - `experiments/`: Results from experiments.
